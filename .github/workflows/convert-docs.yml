@@ -1,0 +1,23 @@
+name: Convert Docs
+
+on:
+  push:
+    paths:
+      - 'docs/**.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Pandoc
+        run: sudo apt-get install pandoc
+      - name: Convert to PDF
+        run: pandoc docs/whitepaper.md -o docs/whitepaper.pdf
+      - name: Convert to Word
+        run: pandoc docs/whitepaper.md -o docs/whitepaper.docx
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: whitepaper
+          path: docs/whitepaper.*
