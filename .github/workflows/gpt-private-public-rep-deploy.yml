@@ -1,25 +1,20 @@
-name: Build and Publish MkDocs to hjma29.github.io
+# .github/workflows/publish.yml  (IN THE PRIVATE REPO)
+name: Build & publish to hjma29.github.io/<project-slug>/
 
 on:
   push:
-    branches: [ main ]           # adjust if needed
+    branches: [ main ]
     paths:
       - 'docs/**'
       - 'mkdocs.yml'
-      # optionally include a path that copies files into docs/
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write            # needed for pushing to target repo
-
     steps:
-      - name: Checkout private repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -28,18 +23,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install mkdocs mkdocs-material
 
-      # (Optional) Copy/select only the pages you want to publish into docs/
-      # - name: Prepare docs
-      #   run: ./scripts/prepare-docs.sh
-
       - name: Build site
         run: mkdocs build --strict --clean
 
-      # Deploy built HTML (./site) to your PUBLIC repo hjma29/hjma29.github.io
-      - name: Deploy to hjma29.github.io
+      - name: Deploy to user site subfolder
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          # Use a fine-scoped PAT with repo access to push cross-repo
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
           external_repository: hjma29/hjma29.github.io
-          publish_branch: main
+          publish_dir: ./site
+          destination_dir: grafana-hpe            # <-- unique per repo
+          keep_files: true                    # <-- don't delete siblings
