@@ -4,4 +4,5 @@ theme:
   name: material
 nav:
   - Home: index.md
-  
+  - Guide: guide.md
+  - Reference: reference.md
