@@ -1,0 +1,45 @@
+name: Build and Publish MkDocs to hjma29.github.io
+
+on:
+  push:
+    branches: [ main ]           # adjust if needed
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+      # optionally include a path that copies files into docs/
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write            # needed for pushing to target repo
+
+    steps:
+      - name: Checkout private repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install MkDocs + theme
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs mkdocs-material
+
+      # (Optional) Copy/select only the pages you want to publish into docs/
+      # - name: Prepare docs
+      #   run: ./scripts/prepare-docs.sh
+
+      - name: Build site
+        run: mkdocs build --strict --clean
+
+      # Deploy built HTML (./site) to your PUBLIC repo hjma29/hjma29.github.io
+      - name: Deploy to hjma29.github.io
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          external_repository: hjma29/hjma29.github.io
+          publish_branch: main
