@@ -33,5 +33,6 @@ jobs:
           personal_token: ${{ secrets.GRAFANA_HPE_SECRET }}
           external_repository: hjma29/hjma29.github.io
           publish_dir: ./site
+          publish_branch: main
           destination_dir: grafana-hpe            # <-- unique per repo
           keep_files: true                    # <-- don't delete siblings
