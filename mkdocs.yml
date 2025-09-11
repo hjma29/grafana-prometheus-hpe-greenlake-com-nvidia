@@ -2,8 +2,10 @@ site_name: My Docs
 
 theme:
   name: material
+  palette:
+    scheme: slate
 nav:
   - Home: index.md
   - Guide: guide.md
   - Reference: reference.md
-  
+
