@@ -9,23 +9,37 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Run the whole job in a container that already has Pandoc + LaTeX
-    container: pandoc/latex:edge
+    container: pandoc/latex:edge      # valid tag; includes LaTeX
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Convert to PDF (XeLaTeX handles Unicode)
+      # Get a nicer PDF template (optional but recommended)
+      - name: Fetch Eisvogel template
+        run: |
+          mkdir -p /root/.local/share/pandoc/templates
+          curl -fsSL https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex \
+            -o /root/.local/share/pandoc/templates/eisvogel.latex
+
+      - name: Convert to PDF (styled, wrapped code)
         run: |
           pandoc docs/whitepaper.md \
-            --from=gfm \
+            -f gfm+hard_line_breaks+pipe_tables+task_lists+fenced_divs \
             --pdf-engine=xelatex \
+            --template=eisvogel \
+            -H pandoc/header.tex \
+            -V geometry:margin=1in \
+            -V mainfont="DejaVu Serif" \
+            -V sansfont="DejaVu Sans" \
+            -V monofont="DejaVu Sans Mono" \
+            --highlight-style=kate \
+            --toc \
             -o docs/whitepaper.pdf
 
-      - name: Convert to Word (DOCX)
+      - name: Convert to Word (uses Pandoc defaults)
         run: |
           pandoc docs/whitepaper.md \
-            --from=gfm \
+            -f gfm+hard_line_breaks+pipe_tables+task_lists+fenced_divs \
             -o docs/whitepaper.docx
 
       - name: Upload artifacts
@@ -36,4 +50,3 @@ jobs:
             docs/whitepaper.pdf
             docs/whitepaper.docx
           if-no-files-found: error
-          retention-days: 7
