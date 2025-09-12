@@ -43,4 +43,5 @@ prometheus-community/prometheus-adapter                 5.1.0           v0.12.0 
 ---
 ![alt text](images/image-2.png)
 
+
 *Continue to add sections as you curate your notes.*
