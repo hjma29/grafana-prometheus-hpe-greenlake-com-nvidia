@@ -1,5 +1,5 @@
 # .github/workflows/publish.yml  (IN THE PRIVATE REPO)
-name: Build & publish to hjma29.github.io/<project-slug>/
+name: publish to grafana-hpe
 
 on:
   push:
