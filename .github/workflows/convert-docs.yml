@@ -29,9 +29,8 @@ jobs:
             --listings \
             -H pandoc/code-style.tex \
             -V geometry:margin=1in \
-            -V mainfont="TeX Gyre Pagella" \
-            -V sansfont="TeX Gyre Heros" \
-            -V monofont="Firo Code" \
+            -V sansfont="Noto Sans" \
+            -V monofont="Liberation Mono" \
             -o docs/whitepaper.pdf
       - name: Convert to Word
         run: |
