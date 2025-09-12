@@ -31,7 +31,7 @@ jobs:
             -V geometry:margin=1in \
             -V mainfont="TeX Gyre Pagella" \
             -V sansfont="TeX Gyre Heros" \
-            -V monofont="DejaVu Sans Mono" \
+            -V monofont="Firo Code" \
             -o docs/whitepaper.pdf
       - name: Convert to Word
         run: |
