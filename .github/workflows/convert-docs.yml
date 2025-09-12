@@ -9,17 +9,28 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: pandoc/latex:edge      # valid tag; includes LaTeX
+    container: pandoc/latex:edge
 
     steps:
       - uses: actions/checkout@v4
 
-      # Get a nicer PDF template (optional but recommended)
+      # Get the Eisvogel template (correct filename!)
       - name: Fetch Eisvogel template
         run: |
-          mkdir -p /root/.local/share/pandoc/templates
-          curl -fsSL https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex \
-            -o /root/.local/share/pandoc/templates/eisvogel.latex
+          TPL_DIR="${HOME}/.local/share/pandoc/templates"
+          mkdir -p "$TPL_DIR"
+          curl -fsSL \
+            https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.latex \
+            -o "$TPL_DIR/eisvogel.latex"
+
+      # Make code blocks wrap instead of overflowing
+      - name: Add header for code wrapping
+        run: |
+          mkdir -p pandoc
+          cat > pandoc/header.tex <<'EOF'
+          \usepackage{fvextra}
+          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+          EOF
 
       - name: Convert to PDF (styled, wrapped code)
         run: |
@@ -29,14 +40,14 @@ jobs:
             --template=eisvogel \
             -H pandoc/header.tex \
             -V geometry:margin=1in \
-            -V mainfont="DejaVu Serif" \
-            -V sansfont="DejaVu Sans" \
-            -V monofont="DejaVu Sans Mono" \
+            -V mainfont="TeX Gyre Pagella" \
+            -V sansfont="TeX Gyre Heros" \
+            -V monofont="TeX Gyre Cursor" \
             --highlight-style=kate \
             --toc \
             -o docs/whitepaper.pdf
 
-      - name: Convert to Word (uses Pandoc defaults)
+      - name: Convert to Word (DOCX)
         run: |
           pandoc docs/whitepaper.md \
             -f gfm+hard_line_breaks+pipe_tables+task_lists+fenced_divs \
