@@ -1,29 +1,10 @@
-name: Convert Docs
-
-on:
-  push:
-    paths:
-      - 'docs/whitepaper.md'
-  workflow_dispatch: {}
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: pandoc/latex:edge
+    container: pandoc/extra:3
 
     steps:
       - uses: actions/checkout@v4
-
-      # Get the Eisvogel template (correct filename!)
-      - name: Fetch Eisvogel template
-        run: |
-          TPL_DIR="${HOME}/.local/share/pandoc/templates"
-          mkdir -p "$TPL_DIR"
-          curl -fsSL \
-            https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.latex \
-            -o "$TPL_DIR/eisvogel.latex"
-
-      # Make code blocks wrap instead of overflowing
       - name: Add header for code wrapping
         run: |
           mkdir -p pandoc
@@ -31,7 +12,6 @@ jobs:
           \usepackage{fvextra}
           \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
           EOF
-
       - name: Convert to PDF (styled, wrapped code)
         run: |
           pandoc docs/whitepaper.md \
@@ -40,24 +20,16 @@ jobs:
             --template=eisvogel \
             -H pandoc/header.tex \
             -V geometry:margin=1in \
-            -V mainfont="TeX Gyre Pagella" \
-            -V sansfont="TeX Gyre Heros" \
-            -V monofont="TeX Gyre Cursor" \
             --highlight-style=kate \
-            --toc \
             -o docs/whitepaper.pdf
-
-      - name: Convert to Word (DOCX)
+      - name: Convert to Word
         run: |
           pandoc docs/whitepaper.md \
             -f gfm+hard_line_breaks+pipe_tables+task_lists+fenced_divs \
             -o docs/whitepaper.docx
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: whitepaper
           path: |
             docs/whitepaper.pdf
             docs/whitepaper.docx
-          if-no-files-found: error
