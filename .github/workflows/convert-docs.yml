@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     # Run the whole job in a container that already has Pandoc + LaTeX
-    container: pandoc/latex
+    container: pandoc/latex:edge
 
     steps:
       - uses: actions/checkout@v4
