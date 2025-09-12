@@ -43,6 +43,7 @@ prometheus-community/prometheus-adapter                 5.1.0           v0.12.0 
 
 ---
 <br>
+<br>
       
 
 ![alt text](images/image-2.png)
