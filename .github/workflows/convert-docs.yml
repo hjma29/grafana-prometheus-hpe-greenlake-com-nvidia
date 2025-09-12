@@ -26,13 +26,13 @@ jobs:
             -f gfm+hard_line_breaks+pipe_tables+task_lists+fenced_divs \
             --pdf-engine=xelatex \
             --template=eisvogel \
-      --listings \
-      -H pandoc/code-style.tex \
-      -V geometry:margin=1in \
-      -V mainfont="TeX Gyre Pagella" \
-      -V sansfont="TeX Gyre Heros" \
-      -V monofont="DejaVu Sans Mono" \
-      -o docs/whitepaper.pdf
+            --listings \
+            -H pandoc/code-style.tex \
+            -V geometry:margin=1in \
+            -V mainfont="TeX Gyre Pagella" \
+            -V sansfont="TeX Gyre Heros" \
+            -V monofont="DejaVu Sans Mono" \
+            -o docs/whitepaper.pdf
       - name: Convert to Word
         run: |
           pandoc docs/whitepaper.md \
