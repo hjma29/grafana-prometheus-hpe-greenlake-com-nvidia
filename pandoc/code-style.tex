@@ -1,0 +1,19 @@
+% pandoc/code-style.tex
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codebg}{RGB}{248,248,248}
+\definecolor{coderule}{RGB}{220,220,220}
+
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\small,   % fixed-width font
+  frame=single,                  % box around code
+  rulecolor=\color{coderule},
+  framerule=0.6pt,
+  breaklines=true,               % wrap long lines
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false
+}
+\lstset{style=mystyle}
