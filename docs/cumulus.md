@@ -1,16 +1,13 @@
 
 ```sh
-umulus@SN3420M-01:mgmt:~$ nv show platform transceiver brief # after 5.11**
-```
+cumulus@SN3420M-01:mgmt:~$ nv show platform transceiver brief # after 5.11
 Transceiver  Identifier  Vendor name      Vendor PN         Vendor SN     Vendor revision
 -----------  ----------  ---------------  ----------------  ------------  ---------------
 swp1         SFP         FINISAR CORP.    FTLX8571D3BCL-HP  MU50PR6       A        
 swp2         SFP         FOXCONN          CUFCP32-CHB01-EF  CN02KBG0N0    A        
 swp49        QSFP+       Arista Networks  CAB-Q-Q-3M        ADY17120009K  20   
-```
 
-==cumulus@SN3420M-01:mgmt:~$ nv show platform transceiver swp1== **<--need to use this command after 5.11**
-```
+cumulus@SN3420M-01:mgmt:~$ nv show platform transceiver swp1 # before 5.11
 cable-type                  : Optical module
 supported-cable-length      : 30m om1, 80m om2, 300m om3, 0m om4, 0m om5
 supported-cable-length-smf  : 0m
