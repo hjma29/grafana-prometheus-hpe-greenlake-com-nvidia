@@ -40,6 +40,7 @@ prometheus-community/prometheus-adapter                 5.1.0           v0.12.0 
 > [!Note]
 > Was trying to configure grafana to be NodePort but got confused for a long time why "show value" for chart don't show the grafana.service.type while the installed release shows. The "show value" only shows parent prometheus value while "get values" show the merged values after installation.
 
+
 ---
 ![alt text](images/image-2.png)
 
