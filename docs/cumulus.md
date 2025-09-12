@@ -1,6 +1,5 @@
 
 **`cumulus@SN3420M-01:mgmt:~$ nv show platform transceiver brief # after 5.11`**
-
 ```
 cumulus@SN3420M-01:mgmt:~$ nv show platform transceiver brief # after 5.11
 Transceiver  Identifier  Vendor name      Vendor PN         Vendor SN     Vendor revision
