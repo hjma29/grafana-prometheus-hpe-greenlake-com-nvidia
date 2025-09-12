@@ -3,7 +3,7 @@ name: Convert Docs
 on:
   push:
     paths:
-      - 'docs/**.md'
+      - 'docs/whitepaper.md'
 
 jobs:
   build:
