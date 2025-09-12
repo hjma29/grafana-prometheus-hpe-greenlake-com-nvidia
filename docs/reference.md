@@ -10,6 +10,6 @@ Date:   Fri Aug 29 09:50:52 2025 -0700
 wsl=> git log --oneline
 af72a20 (HEAD -> main, origin/main) init
 hjma@HSTHJMA02:~/work/git-script
-```
+````1
 
-![alt text](../images/image.png)
+![alt text](images/image.png)
