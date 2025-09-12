@@ -26,7 +26,7 @@ helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack --
 ```
 
 ### Helm Search Output
-```
+```sh
 prometheus-community/alertmanager                       1.24.0          v0.28.1         The Alertmanager handles alerts sent by client ...
 prometheus-community/alertmanager-snmp-notifier         2.0.1           v2.0.0          The SNMP Notifier handles alerts coming from Pr...
 prometheus-community/jiralert                           1.8.1           v1.3.0          A Helm chart for Kubernetes to install jiralert
@@ -40,11 +40,14 @@ prometheus-community/prometheus-adapter                 5.1.0           v0.12.0 
 > [!Note]
 > Was trying to configure grafana to be NodePort but got confused for a long time why "show value" for chart don't show the grafana.service.type while the installed release shows. The "show value" only shows parent prometheus value while "get values" show the merged values after installation.
 
+:::Note
+Was trying to configure grafana to be NodePort but got confused for a long time why "show value" for chart don't show the grafana.service.type while the installed release shows. The "show value" only shows parent prometheus value while "get values" show the merged values after installation.
+:::
 
 ---
 <br>
 <br>
-      
+
 
 ![alt text](images/image-2.png)
 
