@@ -12,4 +12,4 @@ af72a20 (HEAD -> main, origin/main) init
 hjma@HSTHJMA02:~/work/git-script
 ```
 
-![alt text](../docs/images/image.png)
+![alt text](../images/image.png)
