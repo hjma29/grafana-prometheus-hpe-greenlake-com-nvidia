@@ -51,7 +51,7 @@ jobs:
             -f gfm+hard_line_breaks+pipe_tables+task_lists+fenced_divs \
             --pdf-engine=xelatex \
             --template=eisvogel \
-            --listings \
+            --syntax-highlighting=idiomatic \
             --resource-path=.:docs \
             -H pandoc/code-style.tex \
             -V geometry:margin=1in \
