@@ -13,16 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Pandoc, XeLaTeX, and fonts
-      - name: Install Pandoc, TeX, and fonts
-        run: |
-          sudo apt-get update
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
-            pandoc \
-            texlive-xetex texlive-latex-recommended texlive-latex-extra \
-            fonts-inter fonts-firacode fonts-noto-color-emoji \
-            fontconfig
-          fc-cache -f -v
+  - name: Install latest Pandoc, TeX & fonts
+    run: |
+      sudo apt-get update
+      sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+        texlive-xetex texlive-latex-recommended texlive-latex-extra \
+        fonts-inter fonts-firacode fontconfig curl
+      # install latest pandoc (amd64 .deb)
+      PVER=$(curl -s https://api.github.com/repos/jgm/pandoc/releases/latest | grep -Po '"tag_name":\s*"\K[^"]+')
+      curl -L -o /tmp/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PVER}/pandoc-${PVER}-1-amd64.deb
+      sudo dpkg -i /tmp/pandoc.deb || sudo apt-get -f install -y
+      pandoc --version
 
       # Eisvogel template (since apt's pandoc doesn't include it)
       - name: Install Eisvogel template
