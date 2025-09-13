@@ -30,7 +30,7 @@ jobs:
             --resource-path=.:docs \
             -H pandoc/code-style.tex \
             -V geometry:margin=1in \
-            -V sansfont="Noto Sans" \
+            -V sansfont="Liberation Sans" \
             -V monofont="Liberation Mono" \
             -o docs/whitepaper.pdf
       - name: Convert to Word
