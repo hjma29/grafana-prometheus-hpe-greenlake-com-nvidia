@@ -27,6 +27,7 @@ jobs:
             --pdf-engine=xelatex \
             --template=eisvogel \
             --listings \
+            --resource-path=.:docs \
             -H pandoc/code-style.tex \
             -V geometry:margin=1in \
             -V sansfont="Noto Sans" \
