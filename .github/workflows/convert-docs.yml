@@ -31,7 +31,7 @@ jobs:
           mkdir -p ~/.local/share/pandoc/templates
           curl -fsSL https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/refs/heads/master/template-multi-file/eisvogel.latex \
           -o ~/.local/share/pandoc/templates/eisvogel.latex
-                    curl -fsSL \
+          curl -fsSL \
             https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/templates/eisvogel-added.latex \
             -o "$TDIR/templates/eisvogel-added.latex"
 
