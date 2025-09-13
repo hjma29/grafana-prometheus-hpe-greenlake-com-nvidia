@@ -14,9 +14,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - run: |
-      sudo apt-get update
-      sudo apt-get install -y pandoc texlive-xetex texlive-latex-recommended \
-                              texlive-latex-extra fonts-inter fonts-firacode
+        sudo apt-get update
+        sudo apt-get install -y pandoc texlive-xetex texlive-latex-recommended \
+        texlive-latex-extra fonts-inter fonts-firacode
 
       - name: Add header for code wrapping
         run: |
