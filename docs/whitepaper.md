@@ -18,6 +18,7 @@ The repo has many prometheus related charts. The chart we want is called "kube-p
 
 
 
+
 ### Add repo
 ```sh
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
