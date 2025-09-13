@@ -13,6 +13,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+            - name: Install Font Dependencies
+        run: |
+          apk update
+          apk add --no-cache font-noto font-liberation
       - name: Add header for code wrapping
         run: |
           mkdir -p pandoc
@@ -21,10 +26,7 @@ jobs:
           \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
           EOF
 
-      - name: Install Font Dependencies
-        run: |
-          apk update
-          apk add --no-cache font-noto font-liberation
+
 
       - name: Convert to PDF (styled, wrapped code)
         run: |
