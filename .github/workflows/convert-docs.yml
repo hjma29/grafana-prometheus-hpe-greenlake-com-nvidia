@@ -17,8 +17,8 @@ jobs:
       - name: Install Font Dependencies
         run: |
           apk update
-          apk add --no-cache font-noto font-liberation
-          
+          apk add --no-cache font-inter font-jetbrains-mono 
+
       - name: Add header for code wrapping
         run: |
           mkdir -p pandoc
