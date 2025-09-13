@@ -16,7 +16,6 @@ This document provides a technical overview and deployment guide for Grafana and
 The repo has many prometheus related charts. The chart we want is called "kube-prometheus-stack". This chart also includes sub-chart of grafana.
 
 
-
 ### Add repo
 ```sh
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts

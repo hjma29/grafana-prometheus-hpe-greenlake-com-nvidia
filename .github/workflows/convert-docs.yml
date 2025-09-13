@@ -20,12 +20,12 @@ jobs:
           apk add --no-cache font-inter
           
       - name: Install Fira Code manually
-  run: |
-    apk add --no-cache fontconfig curl unzip
-    curl -L -o /tmp/firacode.zip https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
-    mkdir -p /usr/share/fonts/truetype/firacode
-    unzip -q /tmp/firacode.zip -d /usr/share/fonts/truetype/firacode
-    fc-cache -f -v
+        run: |
+          apk add --no-cache fontconfig curl unzip
+          curl -L -o /tmp/firacode.zip https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
+          mkdir -p /usr/share/fonts/truetype/firacode
+          unzip -q /tmp/firacode.zip -d /usr/share/fonts/truetype/firacode
+          fc-cache -f -v
 
       - name: Add header for code wrapping
         run: |
