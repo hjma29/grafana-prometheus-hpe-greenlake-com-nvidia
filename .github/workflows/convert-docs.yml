@@ -17,7 +17,7 @@ jobs:
       - name: Install Font Dependencies
         run: |
           apk update
-          apk add --no-cache font-inter font-jetbrains-mono 
+          apk add --no-cache font-inter  font-fira-code  
 
       - name: Add header for code wrapping
         run: |
@@ -40,7 +40,8 @@ jobs:
             -H pandoc/code-style.tex \
             -V geometry:margin=1in \
             -V sansfont="Inter" \
-            -V monofont="JetBrains Mono" \
+            -V monofont="Fira Code" \
+            -V monofontoptions="Scale=0.85" \
             -o docs/whitepaper.pdf
       - name: Convert to Word
         run: |
