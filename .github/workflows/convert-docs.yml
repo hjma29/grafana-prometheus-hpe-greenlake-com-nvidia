@@ -28,10 +28,8 @@ jobs:
       - name: Install Eisvogel template
         run: |
           mkdir -p ~/.local/share/pandoc/templates
-          curl -fsSL 
-          https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex \
-          https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/refs/heads/master/template-multi-file/eisvogel.latex
-            -o ~/.local/share/pandoc/templates/eisvogel.latex
+          curl -fsSL https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/refs/heads/master/template-multi-file/eisvogel.latex \
+          -o ~/.local/share/pandoc/templates/eisvogel.latex
 
       - name: Add header for code wrapping
         run: |
