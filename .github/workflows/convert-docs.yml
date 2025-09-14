@@ -16,26 +16,7 @@ jobs:
       - name: Generate PDF with Eisvogel
         uses: docker://pandoc/extra:3.5
         with:
-          args: docs/whitepaper.md -o docs/whitepaper.pdf --pdf-engine=xelatex --template=./pandoc/templates/eisvogel.latex
-
-
-
-
-      - name: Convert to PDF (styled, wrapped code)
-        run: |
-          pandoc docs/whitepaper.md \
-            -f gfm+hard_line_breaks+pipe_tables+task_lists+fenced_divs \
-            --pdf-engine=xelatex \
-            --template=eisvogel \
-            --syntax-highlighting=idiomatic \
-            --resource-path=.:docs \
-            -H pandoc/code-style.tex \
-            -V geometry:margin=1in \
-            -V sansfont="Inter" \
-            -V monofont="Fira Code" \
-            -V monofontoptions="Scale=0.85" \
-            -o docs/whitepaper.pdf
-
+          args: docs/whitepaper.md -o pdf-files/whitepaper.pdf --pdf-engine=xelatex --template=./pandoc/templates/eisvogel.latex
 
       - name: Commit generated docs back to repo
         run: |
@@ -44,3 +25,23 @@ jobs:
           git add pdf-files/whitepaper.pdf 
           git commit -m "Update generated docs [skip ci]" || echo "No changes to commit"
           git push
+
+
+
+
+      # - name: Convert to PDF (styled, wrapped code)
+      #   run: |
+      #     pandoc docs/whitepaper.md \
+      #       -f gfm+hard_line_breaks+pipe_tables+task_lists+fenced_divs \
+      #       --pdf-engine=xelatex \
+      #       --template=eisvogel \
+      #       --syntax-highlighting=idiomatic \
+      #       --resource-path=.:docs \
+      #       -H pandoc/code-style.tex \
+      #       -V geometry:margin=1in \
+      #       -V sansfont="Inter" \
+      #       -V monofont="Fira Code" \
+      #       -V monofontoptions="Scale=0.85" \
+      #       -o docs/whitepaper.pdf
+
+
