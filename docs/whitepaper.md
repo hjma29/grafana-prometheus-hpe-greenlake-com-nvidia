@@ -32,6 +32,7 @@ helm repo update
 helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
 ```
 
+
 ### Helm Search Output
 ```sh
 prometheus-community/alertmanager                       1.24.0          v0.28.1         The Alertmanager handles alerts sent by client ...
