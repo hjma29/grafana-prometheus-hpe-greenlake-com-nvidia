@@ -54,4 +54,4 @@ jobs:
       #       -V monofont="Fira Code" \
       #       -V monofontoptions="Scale=0.85" \
       #       -o docs/whitepaper.pdf
-?
+
