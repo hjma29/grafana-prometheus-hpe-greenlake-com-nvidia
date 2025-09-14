@@ -23,7 +23,10 @@ jobs:
         uses: docker://pandoc/extra:3.5
         with:
           args: >-
-            docs/whitepaper.md -o pdf-files/whitepaper.pdf --pdf-engine=xelatex --template=./pandoc/templates/eisvogel.latex
+            --pdf-engine=xelatex
+            --template=./pandoc/templates/eisvogel.latex
+            docs/whitepaper.md 
+            -o pdf-files/whitepaper.pdf  
 
       - name: Commit generated docs back to repo
         run: |
