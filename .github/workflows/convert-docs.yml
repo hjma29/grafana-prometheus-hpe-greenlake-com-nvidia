@@ -13,6 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Create PDF output directory
+        run: mkdir -p pdf-files
+
       - name: Generate PDF with Eisvogel
         uses: docker://pandoc/extra:3.5
         with:
