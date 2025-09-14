@@ -13,30 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-- name: Generate PDF with Eisvogel
-  uses: docker://pandoc/extra:3.5
-  with:
-    args: mydoc.md -o mydoc.pdf --pdf-engine=xelatex --template /.pandoc/templates/eisvogel.latex
+      - name: Generate PDF with Eisvogel
+        uses: docker://pandoc/extra:3.5
+        with:
+          args: docs/whitepaper.md -o mydoc.pdf --pdf-engine=xelatex --template /.pandoc/templates/eisvogel.latex
 
-
-      # Eisvogel template (since apt's pandoc doesn't include it)
-      - name: Install Eisvogel template
-        run: |
-          mkdir -p ~/.local/share/pandoc/templates
-          curl -fsSL \
-          https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/refs/heads/master/template-multi-file/eisvogel.latex \
-          -o ~/.local/share/pandoc/templates/eisvogel.latex
-          curl -fsSL \
-          https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/refs/heads/master/template-multi-file/eisvogel-added.latex \
-          -o "$TDIR/templates/eisvogel-added.latex"
-
-      - name: Add header for code wrapping
-        run: |
-          mkdir -p pandoc
-          cat > pandoc/header.tex <<'EOF'
-          \usepackage{fvextra}
-          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
-          EOF
 
 
 
