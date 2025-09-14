@@ -12,7 +12,7 @@ jobs:
 
     permissions:
       contents: write
-      
+
     steps:
       - uses: actions/checkout@v4
 
@@ -22,7 +22,8 @@ jobs:
       - name: Generate PDF with Eisvogel
         uses: docker://pandoc/extra:3.5
         with:
-          args: docs/whitepaper.md -o pdf-files/whitepaper.pdf --pdf-engine=xelatex --template=./pandoc/templates/eisvogel.latex
+          args: >-
+            docs/whitepaper.md -o pdf-files/whitepaper.pdf --pdf-engine=xelatex --template=./pandoc/templates/eisvogel.latex
 
       - name: Commit generated docs back to repo
         run: |
