@@ -25,6 +25,7 @@ jobs:
           args: >-
             --pdf-engine=xelatex
             --template=./pandoc/templates/eisvogel.latex
+            --listings
             -V listings-setup="{basicstyle=\small\ttfamily}"
             -V code-block-background-color="F5F5F5"
             -V code-block-frame="single"
