@@ -25,7 +25,7 @@ jobs:
           args: >-
             --pdf-engine=xelatex
             --template=./pandoc/templates/eisvogel.latex
-            --highlight-style=tango
+            --highlight-style=breezedark
             docs/whitepaper.md 
             -o pdf-files/whitepaper.pdf  
 
