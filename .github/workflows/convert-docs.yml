@@ -55,6 +55,7 @@ jobs:
       #       -V monofontoptions="Scale=0.85" \
       #       -o docs/whitepaper.pdf
 
+            --listings
             -V listings-setup="{basicstyle=\small\ttfamily}"
             -V code-block-background-color="F5F5F5"
             -V code-block-frame="single"
