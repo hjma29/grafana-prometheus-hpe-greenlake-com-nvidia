@@ -25,7 +25,7 @@ jobs:
           args: >-
             --pdf-engine=xelatex
             --template=./pandoc/templates/eisvogel.latex
-
+            --highlight-style=tango
             docs/whitepaper.md 
             -o pdf-files/whitepaper.pdf  
 
@@ -38,7 +38,6 @@ jobs:
           git push
 
 
-          --highlight-style=tango
 
 
       # - name: Convert to PDF (styled, wrapped code)
