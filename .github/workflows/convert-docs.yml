@@ -71,9 +71,11 @@ jobs:
           pandoc docs/whitepaper.md \
             -f gfm+hard_line_breaks+pipe_tables+task_lists+fenced_divs \
             -o docs/whitepaper.docx
-      - uses: actions/upload-artifact@v4
-        with:
-          name: whitepaper
-          path: |
-            docs/whitepaper.pdf
-            docs/whitepaper.docx
+
+      - name: Commit generated docs back to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pdf-files/whitepaper.pdf pdf-files/whitepaper.docx
+          git commit -m "Update generated docs [skip ci]" || echo "No changes to commit"
+          git push
