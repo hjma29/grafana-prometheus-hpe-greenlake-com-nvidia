@@ -5,6 +5,8 @@ code-block-font-size: \scriptsize
 title: HPE on Grafana
 author: Hongjun Ma
 date: rev1, 2025-09
+header-right: "\\nouppercase{\\rightmark}"
+
 
 toc: true
 toc-depth: 2
