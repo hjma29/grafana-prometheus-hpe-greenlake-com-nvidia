@@ -1,3 +1,4 @@
+---
 listings: true
 highlight-style: zenburn
 
@@ -13,7 +14,7 @@ code-block-font-size: \scriptsize
 code-block-background-color: "333333"          # Dark gray background
 code-block-frame: "double"                      # Double border
 code-block-frame-color: "505050"   
-
+---
 #
 #listings-setup: "{basicstyle=\\scriptsize\\ttfamily,breaklines=true,frame=single,rulecolor=\\color{black},backgroundcolor=\\color{gray!10}}"
 
