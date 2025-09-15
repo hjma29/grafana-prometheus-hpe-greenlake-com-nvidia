@@ -13,6 +13,7 @@ toc-depth: 2
 toc-own-page: true
 
 header-includes:
+  - \automark{section}  
   - \let\oldsection\section
   - \renewcommand{\section}{\clearpage\oldsection}
 
