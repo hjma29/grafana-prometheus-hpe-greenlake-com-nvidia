@@ -1,8 +1,9 @@
 listings: true
 code-block-font-size: \scriptsize  
 
+listings-setup: "{basicstyle=\\scriptsize\\ttfamily,breaklines=true,frame=single,rulecolor=\\color{black},backgroundcolor=\\color{gray!10}}"
 
-header-includes:
+#header-includes:
   - \lstset{breaklines=true,frame=single,rulecolor=\color{black},backgroundcolor=\color[HTML]{F5F5F5}}
 
 
