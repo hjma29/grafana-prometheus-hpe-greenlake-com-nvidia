@@ -19,6 +19,7 @@ header-includes:
 listings-disable-line-numbers: true
 code-block-font-size: \scriptsize  
 ---
+
 # Optional: define a custom background color
 # header-includes:
 #   - \usepackage[HTML]{xcolor}
