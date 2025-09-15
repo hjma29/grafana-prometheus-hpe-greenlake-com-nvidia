@@ -26,7 +26,6 @@ jobs:
             --pdf-engine=xelatex
             --template=./pandoc/templates/eisvogel.latex
             --highlight-style=zenburn
-            -V code-block-font-size=\\tiny
             --resource-path=.:docs
             docs/whitepaper.md 
             -o pdf-files/whitepaper.pdf  
