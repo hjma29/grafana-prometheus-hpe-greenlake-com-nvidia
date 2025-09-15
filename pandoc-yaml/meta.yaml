@@ -1,3 +1,16 @@
+listings: true
+highlight-style: zenburn
+
+# Optional: define a custom background color
+header-includes:
+  - \usepackage[HTML]{xcolor}
+  - \definecolor{codebg}{HTML}{F5F5F5}
+
+# All listings options go here:
+listings-setup: "{basicstyle=\\scriptsize\\ttfamily,breaklines=true,frame=single,rulecolor=\\color{black},backgroundcolor=\\color{codebg}}"
+
+
+
 #code-block-font-size: \scriptsize  
 
 #
