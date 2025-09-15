@@ -12,7 +12,6 @@ This document provides a technical overview and deployment guide for Grafana and
 
 ## Installation
 
-
 The repo has many prometheus related charts. The chart we want is called "kube-prometheus-stack". This chart also includes sub-chart of grafana.
 
 

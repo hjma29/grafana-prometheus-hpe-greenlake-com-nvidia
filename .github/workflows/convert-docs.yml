@@ -25,7 +25,7 @@ jobs:
           args: >-
             --pdf-engine=xelatex
             --template=./pandoc/templates/eisvogel.latex
-            --highlight-style=zenburn
+            --metadata-file=pandoc-yaml/meta.yaml
             --resource-path=.:docs
             docs/whitepaper.md 
             -o pdf-files/whitepaper.pdf  
