@@ -1,5 +1,6 @@
 ---
 listings: true
+listings-disable-line-numbers: true
 highlight-style: zenburn
 
 # Optional: define a custom background color
