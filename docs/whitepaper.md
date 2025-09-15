@@ -1,4 +1,10 @@
-[toc]
+- [White Paper: Grafana \& Prometheus on HPE GreenLake with NVIDIA](#white-paper-grafana--prometheus-on-hpe-greenlake-with-nvidia)
+  - [Introduction](#introduction)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+    - [Add repo](#add-repo)
+    - [Install](#install)
+    - [Helm Search Output](#helm-search-output)
 
 
 # White Paper: Grafana & Prometheus on HPE GreenLake with NVIDIA
