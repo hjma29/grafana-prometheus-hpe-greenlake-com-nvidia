@@ -1,6 +1,6 @@
 ---
-listings: true
 listings-disable-line-numbers: true
+code-block-font-size: \scriptsize  
 
 title: Whitepaper
 author: Hongjun Ma
@@ -8,7 +8,7 @@ date: September 2025
 header-includes:
   - \let\oldsection\section
   - \renewcommand{\section}{\clearpage\oldsection}
-
+---
 # Optional: define a custom background color
 # header-includes:
 #   - \usepackage[HTML]{xcolor}
@@ -17,11 +17,10 @@ header-includes:
 # # All listings options go here:
 #listings-setup: "{basicstyle=\\scriptsize\\ttfamily,breaklines=true,frame=double,rulecolor=\\color{gray!30},backgroundcolor=\\color{codebg}}"
 #toc-own-page: true
-code-block-font-size: \scriptsize  
-code-block-background-color: "333333"          # Dark gray background
-code-block-frame: "double"                      # Double border
-code-block-frame-color: "505050"   
----
+#code-block-background-color: "333333"          # Dark gray background
+#code-block-frame: "double"                      # Double border
+#code-block-frame-color: "505050"   
+
 #
 #listings-setup: "{basicstyle=\\scriptsize\\ttfamily,breaklines=true,frame=single,rulecolor=\\color{black},backgroundcolor=\\color{gray!10}}"
 
