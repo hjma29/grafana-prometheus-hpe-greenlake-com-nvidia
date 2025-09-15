@@ -5,6 +5,11 @@ code-block-font-size: \scriptsize
 title: Whitepaper
 author: Hongjun Ma
 date: September 2025
+
+toc: true
+toc-depth: 2
+toc-own-page: true
+
 header-includes:
   - \let\oldsection\section
   - \renewcommand{\section}{\clearpage\oldsection}

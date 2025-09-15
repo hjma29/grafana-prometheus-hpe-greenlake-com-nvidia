@@ -1,5 +1,3 @@
-
-
 # White Paper: Grafana & Prometheus on HPE GreenLake with NVIDIA
 
 ## Introduction
