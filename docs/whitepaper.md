@@ -9,7 +9,6 @@ This document provides a technical overview and deployment guide for Grafana and
 - Troubleshooting
 - References
 
-
 ## Installation
 
 
