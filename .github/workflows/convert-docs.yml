@@ -27,7 +27,7 @@ jobs:
             --template=./pandoc/templates/eisvogel.latex
             --highlight-style=zenburn
             --resource-path=.:docs
-            --listings
+            --listings=true
             docs/whitepaper.md 
             -o pdf-files/whitepaper.pdf  
 
