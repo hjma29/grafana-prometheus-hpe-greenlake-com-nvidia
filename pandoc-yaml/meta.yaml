@@ -13,7 +13,10 @@ toc-depth: 2
 toc-own-page: true
 
 header-includes:
-  - \automark{section}  
+  - \makeatletter
+  - \renewcommand{\sectionmark}[1]{\markright{##1}}
+  - \makeatother
+
   - \let\oldsection\section
   - \renewcommand{\section}{\clearpage\oldsection}
 
