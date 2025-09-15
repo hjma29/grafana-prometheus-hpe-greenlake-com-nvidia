@@ -27,8 +27,9 @@ jobs:
             --template=./pandoc/templates/eisvogel.latex
             --metadata-file=pandoc-yaml/meta.yaml
             --resource-path=.:docs
-            docs/whitepaper.md 
-            -o pdf-files/whitepaper.pdf  
+            --listings
+            docs/whitepaper.md
+            -o pdf-files/whitepaper.pdf
 
       - name: Commit generated docs back to repo
         run: |
