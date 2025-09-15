@@ -11,7 +11,7 @@ highlight-style: zenburn
 
 code-block-font-size: \scriptsize  
 code-block-background-color: "2D2D2D"          # Dark gray background
-code-block-frame: "single"                      # Single border
+code-block-frame: "double"                      # Double border
 code-block-frame-color: "666666"   
 
 #
