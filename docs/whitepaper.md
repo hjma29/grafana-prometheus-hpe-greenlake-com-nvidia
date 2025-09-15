@@ -1,5 +1,6 @@
 # White Paper: Grafana & Prometheus on HPE GreenLake with NVIDIA
 
+
 ## Introduction
 This document provides a technical overview and deployment guide for Grafana and Prometheus in HPE GreenLake environments with NVIDIA hardware.
 
