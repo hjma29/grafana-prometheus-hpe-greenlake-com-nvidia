@@ -1,7 +1,13 @@
 ---
 listings: true
 listings-disable-line-numbers: true
-highlight-style: zenburn
+
+title: Whitepaper
+author: Hongjun Ma
+date: September 2025
+header-includes:
+  - \let\oldsection\section
+  - \renewcommand{\section}{\clearpage\oldsection}
 
 # Optional: define a custom background color
 # header-includes:
@@ -11,7 +17,6 @@ highlight-style: zenburn
 # # All listings options go here:
 #listings-setup: "{basicstyle=\\scriptsize\\ttfamily,breaklines=true,frame=double,rulecolor=\\color{gray!30},backgroundcolor=\\color{codebg}}"
 #toc-own-page: true
-monofont: "Fira Code"
 code-block-font-size: \scriptsize  
 code-block-background-color: "333333"          # Dark gray background
 code-block-frame: "double"                      # Double border
