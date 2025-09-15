@@ -3,8 +3,8 @@ title: HPE on Grafana
 author: Hongjun Ma
 date: rev1, 2025-09
 
-header-right: "\\nouppercase{\\rightmark}"
-footer-left: "\\thedate"
+header-right: "\\nouppercase{\\headmark}"
+footer-left: "$thedate$"
 footer-right: "\\thepage/\\pageref{LastPage}" # current page / total
                     # show date
 
