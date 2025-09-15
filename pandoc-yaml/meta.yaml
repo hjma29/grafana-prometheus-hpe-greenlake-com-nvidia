@@ -8,8 +8,8 @@ highlight-style: zenburn
 #   - \definecolor{codebg}{HTML}{5F5F5F}
 
 # # All listings options go here:
-#listings-setup: "{basicstyle=\\scriptsize\\ttfamily,breaklines=true,frame=single,rulecolor=\\color{black},backgroundcolor=\\color{codebg}}"
-
+#listings-setup: "{basicstyle=\\scriptsize\\ttfamily,breaklines=true,frame=double,rulecolor=\\color{gray!30},backgroundcolor=\\color{codebg}}"
+toc-own-page: true
 code-block-font-size: \scriptsize  
 code-block-background-color: "333333"          # Dark gray background
 code-block-frame: "double"                      # Double border
