@@ -1,12 +1,6 @@
-#listings: true
 #code-block-font-size: \scriptsize  
 
-highlight-style: zenburn  # Or another style like tango, pygments, etc.
-
-# Pass custom commands to the LaTeX preamble
-header-includes:
-  - \lstset{basicstyle=\scriptsize\ttfamily,breaklines=true}
-
+#
 #listings-setup: "{basicstyle=\\scriptsize\\ttfamily,breaklines=true,frame=single,rulecolor=\\color{black},backgroundcolor=\\color{gray!10}}"
 
 #header-includes:
