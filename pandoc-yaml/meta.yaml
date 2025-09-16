@@ -13,6 +13,7 @@ toc-depth: 2
 toc-own-page: true
 
 header-includes:
+  - \usepackage{lastpage}
   - \makeatletter
   - \renewcommand{\sectionmark}[1]{\markright{##1}}
   - \makeatother
