@@ -12,9 +12,11 @@ header-right: "\\rightmark"
 footer-left: "rev1, 2025-09"
 footer-right: "\\thepage/\\pageref{totalpages}" 
 
+numbersections: true
+
 header-includes:
   - \makeatletter
-  - \renewcommand{\sectionmark}[1]{\markright{\unexpanded{\arabic{section}\space#1}}}
+  - \renewcommand{\sectionmark}[1]{\markright{\thesection\\enspace #1}}
   - \makeatother
   - \AtEndDocument{\label{totalpages}}
   - \let\oldsection\section
