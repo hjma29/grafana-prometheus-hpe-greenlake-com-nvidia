@@ -1,8 +1,8 @@
 
-## Introduction
+# Introduction
 This document provides a technical overview and deployment guide for Grafana and Prometheus in HPE GreenLake environments with NVIDIA hardware.
 
-## Table of Contents
+# Table of Contents
 - Installation
 - Configuration
 - Troubleshooting
@@ -10,7 +10,7 @@ This document provides a technical overview and deployment guide for Grafana and
 
 
 
-## Installation
+# Installation
 
 The repo has many prometheus related charts. The chart we want is called "kube-prometheus-stack". This chart also includes sub-chart of grafana.
 
