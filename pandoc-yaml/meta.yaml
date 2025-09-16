@@ -14,7 +14,7 @@ footer-right: "\\thepage/\\pageref{totalpages}"
 
 header-includes:
   - \makeatletter
-  - \renewcommand{\sectionmark}[1]{\markright{\unexpanded{\thesection\space#1}}}
+  - \renewcommand{\sectionmark}[1]{\markright{\unexpanded{\numberstringnum{\value{section}}\space#1}}}
   - \makeatother
   - \AtEndDocument{\label{totalpages}}
   - \let\oldsection\section
