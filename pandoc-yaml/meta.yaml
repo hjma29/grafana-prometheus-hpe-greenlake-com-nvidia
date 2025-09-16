@@ -16,7 +16,7 @@ numbersections: true
 
 header-includes:
   - \makeatletter
-  - \renewcommand{\sectionmark}[1]{\markright{\thesection\\enspace #1}}
+  \renewcommand{\sectionmark}[1]{\markright{\ifnum\value{section}>0 \arabic{section}\space##1\else ##1\fi}}
   - \makeatother
   - \AtEndDocument{\label{totalpages}}
   - \let\oldsection\section
