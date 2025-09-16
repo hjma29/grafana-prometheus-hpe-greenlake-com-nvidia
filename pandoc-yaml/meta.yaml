@@ -10,14 +10,13 @@ toc-own-page: true
 
 header-right: "\\rightmark"
 footer-left: "rev1, 2025-09"
-footer-right: "\\thepage/\\pageref{LastPage}" 
+footer-right: "\\thepage/\\pageref{totalpages}" 
 
 header-includes:
-  - \usepackage{lastpage}
   - \makeatletter
   - \renewcommand{\sectionmark}[1]{\markright{##1}}
   - \makeatother
-
+  - \AtEndDocument{\label{totalpages}}
   - \let\oldsection\section
   - \renewcommand{\section}{\clearpage\oldsection}
 
