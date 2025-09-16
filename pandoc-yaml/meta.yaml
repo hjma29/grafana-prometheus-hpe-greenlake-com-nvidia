@@ -4,7 +4,7 @@ author: Hongjun Ma
 date: rev1, 2025-09
 
 header-right: "\\rightmark"
-footer-left: "$thedate$"
+footer-left: "rev1, 2025-09"
 footer-right: "\\thepage/\\pageref{LastPage}" # current page / total
                     # show date
 
