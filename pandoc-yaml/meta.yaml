@@ -14,7 +14,7 @@ footer-right: "\\thepage/\\pageref{totalpages}"
 
 header-includes:
   - \makeatletter
-  - \renewcommand{\sectionmark}[1]{\markright{##1}}
+  - \renewcommand{\sectionmark}[1]{\markright{\unexpanded{\thesection\space#1}}}
   - \makeatother
   - \AtEndDocument{\label{totalpages}}
   - \let\oldsection\section
@@ -24,6 +24,7 @@ listings-disable-line-numbers: true
 code-block-font-size: \scriptsize  
 ---
 
+# - \renewcommand{\sectionmark}[1]{\markright{##1}}
 # Optional: define a custom background color
 # header-includes:
 #   - \usepackage[HTML]{xcolor}
