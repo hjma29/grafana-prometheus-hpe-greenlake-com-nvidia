@@ -5,8 +5,8 @@ date: rev1, 2025-09
 
 header-right: "\\rightmark"
 footer-left: "rev1, 2025-09"
-footer-right: "\\thepage/\\zpageref{totalpages}" # current page / total
-                    # show date
+footer-right: "\\thepage/\\zpageref{totalpages}" 
+
 
 toc: true
 toc-depth: 2
