@@ -10,10 +10,10 @@ toc-own-page: true
 
 header-right: "\\rightmark"
 footer-left: "rev1, 2025-09"
-footer-right: "\\thepage/\\zpageref{totalpages}" 
+footer-right: "\\thepage/\\pageref{LastPage}" 
 
 header-includes:
-  - \usepackage{zref-totpages}
+  - \usepackage{lastpage}
   - \makeatletter
   - \renewcommand{\sectionmark}[1]{\markright{##1}}
   - \makeatother
