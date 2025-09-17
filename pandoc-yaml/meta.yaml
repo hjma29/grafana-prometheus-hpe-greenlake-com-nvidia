@@ -13,7 +13,6 @@ footer-right: "\\thepage/\\pageref{totalpages}"
 
 
 header-includes:
-  - \usepackage{fancyhdr}
   - \makeatletter
   - \makeatother
   - \AtEndDocument{\label{totalpages}}
