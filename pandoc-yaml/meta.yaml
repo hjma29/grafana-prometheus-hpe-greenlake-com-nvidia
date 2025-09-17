@@ -14,8 +14,8 @@ footer-right: "\\thepage/\\pageref{totalpages}"
 
 
 header-includes:
+  - \usepackage{fancyhdr}
   - \makeatletter
-  - \renewcommand{\sectionmark}[1]{\markright{\ifnum\value{section}>0 \arabic{section}\space##1\else ##1\fi}}
   - \makeatother
   - \AtEndDocument{\label{totalpages}}
   - \let\oldsection\section
@@ -24,6 +24,8 @@ header-includes:
 listings-disable-line-numbers: true
 code-block-font-size: \scriptsize  
 ---
+
+#  - \renewcommand{\sectionmark}[1]{\markright{\ifnum\value{section}>0 \arabic{section}\space##1\else ##1\fi}}
 
 # - \renewcommand{\sectionmark}[1]{\markright{##1}}
 # Optional: define a custom background color
