@@ -8,7 +8,7 @@ toc-own-page: true
 #numbersections: true
 
 
-header-right: "\\nouppercase{\\rightmark}"  
+header-right: "\\nouppercase{\\headmark}"  
 footer-left: "rev1, 2025-09"
 footer-right: "\\thepage/\\pageref{totalpages}" 
 
