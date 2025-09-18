@@ -13,8 +13,7 @@ footer-right: "\\thepage/\\pageref{totalpages}"
 
 
 header-includes:
-  - \makeatletter
-  - \makeatother
+  - \renewcommand{\sectionmark}[1]{\markright{##1}}
   - \AtEndDocument{\label{totalpages}}
   - \let\oldsection\section
   - \renewcommand{\section}{\clearpage\oldsection}
