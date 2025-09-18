@@ -15,9 +15,9 @@ footer-right: "\\thepage/\\pageref{totalpages}"
 
 header-includes:
   - \renewcommand{\sectionmark}[1]{\markright{#1}}
-  - AtEndDocument{\label{totalpages}}
-  - let\oldsection\section
-  - renewcommand{\section}{\clearpage\oldsection}
+  - \AtEndDocument{\label{totalpages}}
+  - \let\oldsection\section
+  - \renewcommand{\section}{\clearpage\oldsection}
 
 listings-disable-line-numbers: true
 code-block-font-size: \scriptsize  
