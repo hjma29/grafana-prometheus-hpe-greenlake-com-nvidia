@@ -5,6 +5,7 @@ date: rev1, 2025-09
 toc: true
 toc-depth: 2
 toc-own-page: true
+numbersections: true
 
 
 header-right: "\\rightmark"
