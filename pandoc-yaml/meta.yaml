@@ -13,7 +13,7 @@ footer-left: "rev1, 2025-09"
 footer-right: "\\thepage/\\pageref{totalpages}" 
 
 
-header-includes:
+header-includes: |
   - \renewcommand{\sectionmark}[1]{\markright{##1}}
   - \AtEndDocument{\label{totalpages}}
   - \let\oldsection\section
