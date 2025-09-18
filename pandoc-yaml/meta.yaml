@@ -14,11 +14,7 @@ footer-right: "\\thepage/\\pageref{totalpages}"
 
 
 header-includes: |
-  \usepackage{fancyhdr}
-  \pagestyle{fancy}
-  \fancyhf{}
-  \renewcommand{\sectionmark}[1]{\markright{##1}}
-  \fancyhead[R]{\rightmark}
+  \renewcommand{\sectionmark}[1]{\markright{#1}}
   \AtEndDocument{\label{totalpages}}
   \let\oldsection\section
   \renewcommand{\section}{\clearpage\oldsection}
