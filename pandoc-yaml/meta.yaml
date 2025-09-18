@@ -8,12 +8,13 @@ toc-own-page: true
 #numbersections: true
 
 
-header-right: "\\nouppercase{\\rightmark}"  
-footer-left: "rev1, 2025-09"
-footer-right: "\\thepage/\\pageref{totalpages}" 
+#header-right: "\\nouppercase{\\rightmark}"  
+#footer-left: "rev1, 2025-09"
+#footer-right: "\\thepage/\\pageref{totalpages}" 
 
 
 header-includes: |
+  \usepackage{fancyhdr}
   \renewcommand{\sectionmark}[1]{\markright{##1}}
   \AtEndDocument{\label{totalpages}}
   \let\oldsection\section
