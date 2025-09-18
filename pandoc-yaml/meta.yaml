@@ -8,9 +8,9 @@ toc-own-page: true
 #numbersections: true
 
 
-#header-right: "\\nouppercase{\\rightmark}"  
-#footer-left: "rev1, 2025-09"
-#footer-right: "\\thepage/\\pageref{totalpages}" 
+header-right: "\\rightmark"  
+footer-left: "rev1, 2025-09"
+footer-right: "\\thepage/\\pageref{totalpages}" 
 
 
 header-includes: |
