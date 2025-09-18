@@ -15,7 +15,10 @@ toc-own-page: true
 
 header-includes: |
   \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhf{}
   \renewcommand{\sectionmark}[1]{\markright{##1}}
+  \fancyhead[R]{\rightmark}
   \AtEndDocument{\label{totalpages}}
   \let\oldsection\section
   \renewcommand{\section}{\clearpage\oldsection}
