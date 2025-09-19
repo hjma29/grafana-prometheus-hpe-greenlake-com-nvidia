@@ -7,6 +7,8 @@ toc-depth: 2
 toc-own-page: true
 #numbersections: true
 
+listings-disable-line-numbers: true
+code-block-font-size: \scriptsize  
 
 header-right: "\\rightmark"  
 footer-left: "rev1, 2025-09"
