@@ -19,8 +19,7 @@ header-includes:
   - \let\oldsection\section
   - \renewcommand{\section}{\clearpage\oldsection}
 
-listings-disable-line-numbers: true
-code-block-font-size: \scriptsize  
+
 
 
 #  - \renewcommand{\sectionmark}[1]{\markright{\ifnum\value{section}>0 \arabic{section}\space##1\else ##1\fi}}
