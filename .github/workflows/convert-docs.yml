@@ -20,7 +20,7 @@ jobs:
         run: mkdir -p pdf-files
 
       - name: Generate PDF with Eisvogel
-        uses: docker://pandoc/extra:3.5
+        uses: docker://pandoc/extra:latest-ubuntu
         with:
           args: >-
             --pdf-engine=xelatex
