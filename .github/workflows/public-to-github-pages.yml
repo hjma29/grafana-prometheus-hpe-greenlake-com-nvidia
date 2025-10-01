@@ -30,6 +30,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           # Use a fine-scoped PAT with repo access to push cross-repo
+          # Secret GRAFANA_HPE_SECRET is configured in repository settings
           personal_token: ${{ secrets.GRAFANA_HPE_SECRET }}
           external_repository: hjma29/hjma29.github.io
           publish_dir: ./site
