@@ -6,9 +6,6 @@ theme:
     scheme: slate
 nav:
   - Home: index.md
-  - Guide: guide.md
-  - Reference: reference.md
-  - Cumulus: cumulus.md
 
 markdown_extensions:
   - pymdownx.superfences
