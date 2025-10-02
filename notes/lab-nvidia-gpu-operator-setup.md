@@ -31,5 +31,40 @@ test-prometheus-prometheus-node-exporter   ClusterIP   10.100.132.103   <none>  
 
 wsl=> curl 10.16.160.42:31600
 <a href="/login">Found</a>.
+```
 
+In p1 cluster, the grafana/prometheus was set up using helm
+``` text
+
+wsl=> helm list -A --filter 'prometheus'
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS    CHART                            APP VERSION
+test-prometheus monitoring      3               2025-07-22 17:11:52.125453 -0700 MST    deployed  kube-prometheus-stack-75.4.0     v0.83.0
+hjma@HSTHJMA02:~
+
+wsl=> helm -n monitoring get values test-prometheus --revision 3
+USER-SUPPLIED VALUES:
+prometheus:
+  prometheusSpec:
+    additionalScrapeConfigs:
+    - job_name: c2-dcgm-exporter
+      static_configs:
+      - targets:
+        - 10.16.160.54:30639
+        - 10.16.160.54:30639
+hjma@HSTHJMA02:~
+wsl=> helm -n monitoring get values test-prometheus --revision 2
+USER-SUPPLIED VALUES:
+prometheus:
+  prometheusSpec:
+    additionalScrapeConfigs:
+    - job_name: c2-dcgm-exporter
+      static_configs:
+      - targets:
+        - 10.16.160.54:31065
+        - 10.16.160.55:31065
+hjma@HSTHJMA02:~
+wsl=> helm -n monitoring get values test-prometheus --revision 1
+USER-SUPPLIED VALUES:
+null
+hjma@HSTHJMA02:~
 ```
