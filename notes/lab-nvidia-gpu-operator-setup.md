@@ -137,7 +137,6 @@ dcgmExporter:
     interval: 15s
     honorLabels: false
     additionalLabels: {}
-  
 ```
 
 ### Make c2 dcgm-exporter service available to p1 prometheus
