@@ -161,6 +161,6 @@ after hours of digging in, found out helm doesn't have the value to lock nodepor
 !!! note
 This is a node
 
-``` txt
+``` 
 this is code
 ```
