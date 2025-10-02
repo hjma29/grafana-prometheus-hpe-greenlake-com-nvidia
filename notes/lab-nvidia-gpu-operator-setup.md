@@ -139,3 +139,7 @@ dcgmExporter:
     additionalLabels: {}
   
 ```
+
+### Make c2 dcgm-exporter service available to p1 prometheus
+We can change svc dcgm-exporter from default "clusterIP" to "nodePort". If we patch k8s using "kubectl", the change will not be persistent as helm values are still default so next time you upgrade gpu-operatore helm. The service will be back to clusterIP. We will need to modify helm values to make it persisent.
+
