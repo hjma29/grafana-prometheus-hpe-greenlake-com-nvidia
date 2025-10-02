@@ -140,7 +140,7 @@ dcgmExporter:
 ```
 
 ### Make c2 dcgm-exporter service available to p1 prometheus
-We can change svc dcgm-exporter from default "clusterIP" to "nodePort". If we patch k8s using "kubectl", the change will not be persistent as helm values are still default so next time you upgrade gpu-operatore helm. The service will be back to clusterIP. We will need to modify helm values to make it persisent.
+We can change `svc` dcgm-exporter from default "clusterIP" to "nodePort". If we patch k8s using "kubectl", the change will not be persistent as helm values are still default so next time you upgrade gpu-operatore helm. The service will be back to clusterIP. We will need to modify helm values to make it persisent.
 
 > Note
 after hours of digging in, found out helm doesn't have the value to lock nodeport value. It only can define type as NodePort and another field of internalTrafficPolicy. I tried to define nodeport 39400 to lock the port so the port won't change after restart or chart upgrade but always got error field not supported. So this is the turning point that I need to install prometheous on c2 cluster to avoid this hassle.
