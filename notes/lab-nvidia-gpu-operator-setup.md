@@ -158,3 +158,5 @@ after hours of digging in, found out helm doesn't have the value to lock nodepor
 > [!WARNING]
 > This is a warning about a potential issue or a caution.
 
+!!! note
+This is a node
