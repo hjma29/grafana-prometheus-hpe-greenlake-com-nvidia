@@ -34,8 +34,7 @@ wsl=> curl 10.16.160.42:31600
 ```
 
 In p1 cluster, the grafana/prometheus was set up using helm
-``` 
-
+```
 wsl=> helm list -A --filter 'prometheus'
 NAME            NAMESPACE       REVISION        UPDATED                                 STATUS    CHART                            APP VERSION
 test-prometheus monitoring      3               2025-07-22 17:11:52.125453 -0700 MST    deployed  kube-prometheus-stack-75.4.0     v0.83.0
