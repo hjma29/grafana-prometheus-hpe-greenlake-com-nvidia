@@ -4,8 +4,47 @@
 
 ## Overview
 
-Currenhjma@HSTHJMA02:~
+Currenhjma@HSUSER-SUPPLIED VALUES:
+n- In the stock g  - If the GPU Operator is installed into a cluster without GPU-capable nodes, the DaemonSet for dcgm-exporter may not schedule any pods.
+
+### ServiceMonitor Overview
+
+A ServiceMonitor is not a built-in Kubernetes object like a Pod, Deployment, or Service. It's a Custom Resource Definition (CRD) that comes from the Prometheus Operator (or kube-prometheus-stack Helm chart).
+
+**How it works:**
+
+- You first deploy Prometheus Operator (usually via kube-prometheus-stack Helm chart).
+- The Prometheus Operator introduces new CRDs, including:
+  - ServiceMonitor
+  - PodMonitor
+  - PrometheusRule
+- Prometheus Operator watches for ServiceMonitor objects and dynamically updates Prometheus' scrape configuration to match them.
+
+**For NVIDIA GPU Operator:**
+
+- If set to true, it will create a ServiceMonitor for the DCGM exporter so Prometheus can scrape GPU metrics automatically.
+- If you don't have Prometheus Operator installed, creating a ServiceMonitor will do nothing—because only the Prometheus Operator knows how to use it.m chart from NVIDIA's repo, the DCGM exporter is enabled by default (`dcgmExporter.enabled: true`).
+
+However:
+
+1. ServiceMonitor is not enabled by default.
+  - This means Prometheus won't automatically scrape the DCGM exporter unless you either:
+    - Enable the ServiceMonitor (`dcgmExporter.serviceMonitor.enabled: true`), or
+    - Manually define a scrape config in Prometheus.
+2. No GPUs → No exporter pods
+  - If the GPU Operator is installed into a cluster without GPU-capable nodes, the DaemonSet for dcgm-exporter may not schedule any pods.HSTHJMA02:~
 ```
+
+## C2 Cluster Configuration
+
+The C2 cluster has the GPU Operator in the `gpu-operator` namespace.
+
+### DCGM Exporter Overview
+
+The NVIDIA GPU Operator Helm chart deploys a DCGM (Data Center GPU Manager) exporter by default, but there are important nuances:
+
+- The DCGM exporter Pod will be created automatically when the operator detects a node with an NVIDIA GPU and the dcgm-exporter component is enabled in its values.
+- In the stock gpu-operator Helm chart from NVIDIA's repo, the DCGM exporter is enabled by default (`dcgmExporter.enabled: true`).``
 
 ## C2 Cluster Configuration
 
