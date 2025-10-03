@@ -15,7 +15,7 @@ The P1 cluster runs Grafana/Prometheus with the main prometheus-grafana service 
 
 ### P1 Cluster Details
 
-``` text
+```
 wsl=> k config current-context
 p1-admin@p1.grafana
 
