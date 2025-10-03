@@ -166,3 +166,5 @@ We can change the `dcgm-exporter` service from the default `ClusterIP` to `NodeP
 
 > [!NOTE]
 > After hours of investigation, Helm does not have a value to lock the NodePort port number. It can only define the type as NodePort and the `internalTrafficPolicy` field. Attempting to define NodePort 39400 to lock the port (preventing changes after restart or chart upgrade) resulted in "field not supported" errors. This limitation led to the decision to install Prometheus on the C2 cluster to avoid this complexity.
+>
+> 
