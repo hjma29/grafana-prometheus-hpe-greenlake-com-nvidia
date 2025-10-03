@@ -1,13 +1,30 @@
 
 
-Currently I have two cluster, p1 running prometheous and c2 running nvidia gpu-operator. Longer term maybe just run one cluster for simplicity
+# NVIDIA GPU Operator Setup with Grafana and Prometheus
 
-Have two K8s cluster running. 
-The p2 cluster has grafana-prometheus in "monitoring" namespace.
+## Overview
 
-p1-cluster running grafana/prometheus. Main prometheus-grafana svc set up as NodePort on port 31600.  launch web browser to the p1-worker-vm:31600, the login default is "admin/prom-operator"
+Currenhjma@HSTHJMA02:~
+```
 
-``` text
+## C2 Cluster Configuration
+
+The C2 cluster has the GPU Operator in the `gpu-operator` namespace.
+
+### DCGM Exporter Overview
+
+The NVIDIA GPU Operator Helm chart deploys a DCGM (Data Center GPU Manager) exporter by default, but there are important nuances:o Kubernetes clusters are deployed: `p1` running Prometheus and `c2` running NVIDIA GPU Operator. Long-term, these may be consolidated into a single cluster for simplicity.
+
+## Cluster Configuration
+
+Two Kubernetes clusters are running:
+
+- **P1 cluster:** Runs Grafana and Prometheus in the `monitoring` namespace
+- **P2 cluster:** Has Grafana-Prometheus in the `monitoring` namespace
+
+The P1 cluster runs Grafana/Prometheus with the main prometheus-grafana service set up as NodePort on port 31600. Launch a web browser to `p1-worker-vm:31600`; the default login is `admin/prom-operator`.
+
+### P1 Cluster Details``` text
 wsl=> k config current-context
 p1-admin@p1.grafana
 
@@ -33,7 +50,10 @@ wsl=> curl 10.16.160.42:31600
 <a href="/login">Found</a>.
 ```
 
-In p1 cluster, the grafana/prometheus was set up using helm
+### Prometheus Helm Configuration
+
+In the P1 cluster, Grafana/Prometheus was set up using Helm:
+
 ```
 wsl=> helm list -A --filter 'prometheus'
 NAME            NAMESPACE       REVISION        UPDATED                                 STATUS    CHART                            APP VERSION
