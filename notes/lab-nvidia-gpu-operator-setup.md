@@ -13,7 +13,11 @@ Two Kubernetes clusters are running:
 - **P1 cluster:** Runs Grafana and Prometheus in the `monitoring` namespace
 - **P2 cluster:** Has Grafana-Prometheus in the `monitoring` namespace
 
-The P1 cluster runs Grafana/Prometheus with the main prometheus-grafana service set up as NodePort on port 31600. Launch a web browser to `p1-worker-vm:31600`; the default login is `admin/prom-operator`.``` text
+The P1 cluster runs Grafana/Prometheus with the main prometheus-grafana service set up as NodePort on port 31600. Launch a web browser to `p1-worker-vm:31600`; the default login is `admin/prom-operator`.
+
+### P1 Cluster Details
+
+``` text
 wsl=> k config current-context
 p1-admin@p1.grafana
 
