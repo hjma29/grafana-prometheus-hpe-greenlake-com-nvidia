@@ -1,5 +1,6 @@
 # Copilot Instructions for Grafana Documentation
 
+## Only lookinto 
 ## Content Preservation Rules
 - **NEVER modify content inside code blocks** (```, ~~~, or indented code)
 - Preserve all commands, configurations, and technical output exactly as captured
