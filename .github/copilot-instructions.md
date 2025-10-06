@@ -1,6 +1,9 @@
 # Copilot Instructions for Grafana Documentation
 
-## Only lookinto 
+## File to be focused
+- Only lookinto whitepaper.md under docs directory
+
+
 ## Content Preservation Rules
 - **NEVER modify content inside code blocks** (```, ~~~, or indented code)
 - Preserve all commands, configurations, and technical output exactly as captured
