@@ -5,7 +5,7 @@ theme:
   palette:
     scheme: slate
 nav:
-  - Home: index.md
+  - Home: whitepaper.md
 
 markdown_extensions:
   - pymdownx.superfences
