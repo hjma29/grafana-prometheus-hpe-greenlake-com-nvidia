@@ -1,7 +1,7 @@
 # Copilot Instructions for Grafana Documentation
 
 ## File to be focused
-- Only lookinto whitepaper.md under docs directory
+- Only look into whitepaper.md under docs directory
 
 
 ## Content Preservation Rules
