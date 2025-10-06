@@ -126,6 +126,7 @@ wsl=> k config use-context c2-admin@c2.gpu
 Switched to context "c2-admin@c2.gpu".
 hjma@HSTHJMA02:~
 
+
 wsl=> k get svc -n gpu-operator
 NAME                   TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
 gpu-operator           ClusterIP   10.233.44.80   <none>        8080/TCP   23d
