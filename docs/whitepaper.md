@@ -194,4 +194,3 @@ We can change the `dcgm-exporter` service from the default `ClusterIP` to `NodeP
 > test second line  
 > this is 3rd line
 
-
