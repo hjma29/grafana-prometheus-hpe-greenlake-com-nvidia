@@ -190,7 +190,6 @@ We can change the `dcgm-exporter` service from the default `ClusterIP` to `NodeP
     Important warning
 
 > Note: this is a note to see how github render compare with MKDocs. this line has two trailing spaces.  
-> test second line
->
+> test second line  
 > this is 3rd line
-> 
+ 
