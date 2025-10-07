@@ -8,7 +8,6 @@ toc-own-page: true
 #numbersections: true
 
 listings-disable-line-numbers: true
-listings: true
 code-block-font-size: \scriptsize  
 
 header-right: "\\rightmark"  
