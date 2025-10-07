@@ -1,4 +1,4 @@
-name: Convert Docs
+name: Convert to pdf
 
 on:
   push:
