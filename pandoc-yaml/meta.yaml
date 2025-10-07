@@ -22,6 +22,10 @@ header-includes:
   - \let\oldsection\section
   - \renewcommand{\section}{\clearpage\oldsection}
 
+listing-options:
+  - keywordstyle=\color{black}
+  - commentstyle=\color{black}
+  - stringstyle=\color{black}
 
 
 
