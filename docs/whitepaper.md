@@ -193,4 +193,20 @@ We can change the `dcgm-exporter` service from the default `ClusterIP` to `NodeP
 > this is a note to see how github render compare with MKDocs. this line has two trailing spaces.  
 > test second line  
 > this is 3rd line
- 
+
+
+::: note
+This is a note box in Eisvogel
+:::
+
+::: warning
+This is a warning box
+:::
+
+::: tip
+This is a tip box
+:::
+
+::: important
+This is an important box
+:::
