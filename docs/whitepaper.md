@@ -193,6 +193,6 @@ We can change the `dcgm-exporter` service from the default `ClusterIP` to `NodeP
 > this is a note to see how github render compare with MKDocs. this line has two trailing spaces.  
 > test second line  
 > this is 3rd line  
-> disable hl2
+> disable hl2  
 > try disable code hl by using yaml listing-options
 
