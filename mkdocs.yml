@@ -1,4 +1,4 @@
-site_name: Grafana 
+site_name: Grafana + Prometheus on HPE GreenLake with NVIDIA GPU
 
 theme:
   name: material
