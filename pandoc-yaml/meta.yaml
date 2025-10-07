@@ -8,7 +8,6 @@ toc-own-page: true
 #numbersections: true
 
 listings-disable-line-numbers: true
-highlight-style: false
 code-block-font-size: \scriptsize  
 
 header-right: "\\rightmark"  
@@ -22,10 +21,7 @@ header-includes:
   - \let\oldsection\section
   - \renewcommand{\section}{\clearpage\oldsection}
 
-listing-options:
-  - keywordstyle=\color{black}
-  - commentstyle=\color{black}
-  - stringstyle=\color{black}
+
 
 
 
