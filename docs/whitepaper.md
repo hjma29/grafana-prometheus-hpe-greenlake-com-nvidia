@@ -3,3 +3,22 @@
 
 ## Overview
 HPE GreenLake provides a cloud-native platform for managing and monitoring infrastructure with built-in tools and dashboards. While GreenLake offers comprehensive native monitoring capabilities, organizations can also leverage the GreenLake API to integrate with popular open-source tools like Grafana and Prometheus. This approach enables teams to consolidate monitoring data across hybrid environments, utilize existing observability workflows, and create customized dashboards tailored to specific operational needs.
+
+
+## Kubernetes and Helm Setup
+
+```
+hjma@HSTHJMA02:~
+wsl=> k get svc -n gpu-operator 
+NAME                   TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+gpu-operator           ClusterIP   10.233.44.80   <none>        8080/TCP   78d
+nvidia-dcgm-exporter   ClusterIP   10.233.15.59   <none>        9400/TCP   78d
+hjma@HSTHJMA02:~
+wsl=> 
+hjma@HSTHJMA02:~
+wsl=> helm list -A
+NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
+gpu-operator-1753140595 gpu-operator    4               2025-08-14 19:20:42.329819669 -0700 MST deployed        gpu-operator-v25.3.2            v25.3.2    
+kube-prometheus-stack   monitoring      5               2025-08-15 13:06:31.169338089 -0700 MST deployed        kube-prometheus-stack-76.3.0    v0.84.1    
+hjma@HSTHJMA02:~
+```
