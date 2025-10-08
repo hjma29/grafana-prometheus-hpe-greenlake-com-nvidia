@@ -6,6 +6,19 @@ HPE GreenLake provides a cloud-native platform for managing and monitoring infra
 
 
 ## Kubernetes and Helm Setup
+### Environment Verification
+
+Before proceeding with the monitoring setup, verify that your Kubernetes cluster has the necessary components installed. The following shows a working environment with the GPU Operator and Prometheus monitoring stack deployed:
+
+**Services running in the gpu-operator namespace:**
+- `gpu-operator`: Core service for GPU management (ClusterIP: 10.233.44.80:8080)
+- `nvidia-dcgm-exporter`: DCGM metrics exporter for Prometheus integration (ClusterIP: 10.233.15.59:9400)
+
+**Helm releases:**
+- `gpu-operator-1753140595` (v25.3.2) in the `gpu-operator` namespace
+- `kube-prometheus-stack` (76.3.0) in the `monitoring` namespace
+
+You can verify your setup using the following commands:
 
 ```
 hjma@HSTHJMA02:~
