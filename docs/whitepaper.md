@@ -1,4 +1,4 @@
-# Monitoring HPE Proliant Servers running CPU Grafana and Prometheus
+# Monitoring HPE GreenLake Servers running GPU using Grafana and Prometheus
 
 
 ## Overview
