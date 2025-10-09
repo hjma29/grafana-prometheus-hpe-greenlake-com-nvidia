@@ -33,6 +33,11 @@ kube-prometheus-stack   monitoring      5               2025-08-15 13:06:31.1693
 hjma@HSTHJMA02:~
 ```
 
-> **Note**  
-> this is important
-> 
+
+
+```
+wsl=> k get svc --field-selector spec.type=NodePort
+NAME                               TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)                         AGE
+kube-prometheus-stack-grafana      NodePort   10.233.22.241   <none>        80:30080/TCP                    55d
+kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090:30090/TCP,8080:30398/TCP   55d
+```
