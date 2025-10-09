@@ -3,21 +3,19 @@ site_name: Grafana + Prometheus on HPE GreenLake with NVIDIA GPU
 theme:
   name: material
   palette:
-    #scheme: slate
-    
     # Palette toggle for light mode
     - scheme: default
       primary: indigo
       accent: indigo
       toggle:
-        icon: material/brightness-7
+        icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     # Palette toggle for dark mode
     - scheme: slate
       primary: indigo
       accent: indigo
       toggle:
-        icon: material/brightness-4
+        icon: material/toggle-switch
         name: Switch to light mode
 
 nav:
