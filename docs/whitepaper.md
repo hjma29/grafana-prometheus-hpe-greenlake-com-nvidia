@@ -33,6 +33,6 @@ kube-prometheus-stack   monitoring      5               2025-08-15 13:06:31.1693
 hjma@HSTHJMA02:~
 ```
 
-> **Note**
+> **Note**  
 > this is important
 > 
