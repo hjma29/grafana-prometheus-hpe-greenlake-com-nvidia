@@ -21,14 +21,11 @@ Before proceeding with the monitoring setup, verify that your Kubernetes cluster
 You can verify your setup using the following commands:
 
 ```
-hjma@HSTHJMA02:~
 wsl=> k get svc -n gpu-operator 
 NAME                   TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
 gpu-operator           ClusterIP   10.233.44.80   <none>        8080/TCP   78d
 nvidia-dcgm-exporter   ClusterIP   10.233.15.59   <none>        9400/TCP   78d
-hjma@HSTHJMA02:~
-wsl=> 
-hjma@HSTHJMA02:~
+
 wsl=> helm list -A
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
 gpu-operator-1753140595 gpu-operator    4               2025-08-14 19:20:42.329819669 -0700 MST deployed        gpu-operator-v25.3.2            v25.3.2    
