@@ -4,6 +4,8 @@ theme:
   name: material
   palette:
     scheme: slate
+
+
 nav:
   - Home: whitepaper.md
 
