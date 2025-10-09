@@ -32,3 +32,4 @@ gpu-operator-1753140595 gpu-operator    4               2025-08-14 19:20:42.3298
 kube-prometheus-stack   monitoring      5               2025-08-15 13:06:31.169338089 -0700 MST deployed        kube-prometheus-stack-76.3.0    v0.84.1    
 hjma@HSTHJMA02:~
 ```
+
