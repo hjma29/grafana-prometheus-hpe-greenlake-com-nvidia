@@ -6,7 +6,24 @@ HPE GreenLake provides a cloud-native platform for managing and monitoring infra
 
 
 ## Kubernetes and Helm Setup
-### Environment Verification
+### Kubernetes cluster setup
+
+```
+wsl=> k get node -o wide
+NAME                                STATUS   ROLES           AGE   VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME
+c2-cp-01.hst.enablement.local       Ready    control-plane   80d   v1.32.5   10.16.160.51   <none>        Ubuntu 22.04.5 LTS   5.15.0-144-generic   containerd://2.0.5
+c2-cp-02.hst.enablement.local       Ready    control-plane   80d   v1.32.5   10.16.160.52   <none>        Ubuntu 22.04.5 LTS   5.15.0-144-generic   containerd://2.0.5
+c2-cp-03.hst.enablement.local       Ready    control-plane   80d   v1.32.5   10.16.160.53   <none>        Ubuntu 22.04.5 LTS   5.15.0-144-generic   containerd://2.0.5
+c2-worker-01.hst.enablement.local   Ready    <none>          80d   v1.32.5   10.16.160.54   <none>        Ubuntu 22.04.5 LTS   5.15.0-144-generic   containerd://2.0.5
+c2-worker-02.hst.enablement.local   Ready    <none>          80d   v1.32.5   10.16.160.55   <none>        Ubuntu 22.04.5 LTS   5.15.0-144-generic   containerd://2.0.5
+```
+### Kubernetes namespace setup
+```
+wsl=> kubectl get ns | grep -vE '^(kube-|default)'
+NAME              STATUS   AGE
+gpu-operator      Active   80d
+monitoring        Active   56d
+```
 
 Before proceeding with the monitoring setup, verify that your Kubernetes cluster has the necessary components installed. The following shows a working environment with the GPU Operator and Prometheus monitoring stack deployed:
 
