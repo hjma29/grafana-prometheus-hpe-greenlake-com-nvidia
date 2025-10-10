@@ -43,8 +43,8 @@ kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090
 ```
 
 ### GPU utilization simulation
-
-``` yml
+The GPU
+``` yaml
 apiVersion: v1
 kind: Pod
 metadata:
