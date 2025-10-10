@@ -37,17 +37,7 @@ kube-prometheus-stack-grafana      NodePort   10.233.22.241   <none>        80:3
 kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090:30090/TCP,8080:30398/TCP   56d
 ```
 
-Before proceeding with the monitoring setup, verify that your Kubernetes cluster has the necessary components installed. The following shows a working environment with the GPU Operator and Prometheus monitoring stack deployed:
-
-**Services running in the gpu-operator namespace:**
-- `gpu-operator`: Core service for GPU management (ClusterIP: 10.233.44.80:8080)
-- `nvidia-dcgm-exporter`: DCGM metrics exporter for Prometheus integration (ClusterIP: 10.233.15.59:9400)
-
-**Helm releases:**
-- `gpu-operator-1753140595` (v25.3.2) in the `gpu-operator` namespace
-- `kube-prometheus-stack` (76.3.0) in the `monitoring` namespace
-
-You can verify your setup using the following commands:
+### Helm installation for gpu-operator and grafana-prometheous sta
 
 ```
 
