@@ -7,7 +7,7 @@ HPE GreenLake provides a cloud-native platform for managing and monitoring infra
 
 ## Kubernetes and Helm Setup
 ### Kubernetes cluster setup
-This demonstration environment utilizes a high-availability Kubernetes cluster consisting of three control plane nodes and two worker nodes, all running Ubuntu 22.04.5 LTS with containerd as the container runtime. The cluster is equipped with the `gpu-operator` namespace for NVIDIA GPU management and the `monitoring` namespace hosting the Prometheus stack, with external access enabled via NodePort services.
+This demonstration environment utilizes a high-availability Kubernetes cluster consisting of three control plane nodes and two worker nodes, 
 
 ```
 wsl=> k get node -o wide
@@ -19,6 +19,7 @@ c2-worker-01.hst.enablement.local   Ready    <none>          80d   v1.32.5   10.
 c2-worker-02.hst.enablement.local   Ready    <none>          80d   v1.32.5   10.16.160.55   <none>        Ubuntu 22.04.5 LTS   5.15.0-144-generic   containerd://2.0.5
 ```
 ### Kubernetes namespace setup
+The cluster is equipped with the `gpu-operator` namespace for NVIDIA GPU management and the `monitoring` namespace hosting the Prometheus stack, with external access enabled via NodePort services.
 ```
 wsl=> kubectl get ns | grep -vE '^(kube-|default)'
 NAME              STATUS   AGE
