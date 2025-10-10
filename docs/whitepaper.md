@@ -38,7 +38,7 @@ kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090
 ```
 
 ### Helm chart installation
-The environment uses Helm to manage two key components: the NVIDIA GPU Operator (v25.3.2) for GPU resource management and the Kube Prometheus Stack (v76.3.0) for monitoring and observability.
+The environment uses Helm to manage two key components: the NVIDIA GPU Operator for GPU resource management and the Kube Prometheus Stack for monitoring and observability.
 
 ```
 wsl=> helm list -A
