@@ -79,22 +79,3 @@ Deploy the pod using:
 kubectl apply -f gpu-burn.yaml
 ```
 
-Monitor the pod status and GPU metrics through the Grafana dashboards to validate that DCGM is correctly exporting GPU utilization data.
-kind: Pod
-metadata:
-  name: gpu-burn
-spec:
-  containers:
-    - name: gpu-burn
-      image: nvidia/cuda:12.2.0-devel-ubuntu22.04 
-      command: ["/bin/bash", "-c"]
-      args:
-        - |
-          apt update && apt install -y git build-essential && \
-          git clone https://github.com/wilicc/gpu-burn.git && \
-          cd gpu-burn && make && ./gpu_burn 999999 
-      resources:
-        limits:
-          nvidia.com/gpu: 1
-  restartPolicy: Never
-```
