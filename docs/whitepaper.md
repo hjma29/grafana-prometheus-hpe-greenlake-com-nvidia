@@ -42,3 +42,25 @@ kube-prometheus-stack-grafana      NodePort   10.233.22.241   <none>        80:3
 kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090:30090/TCP,8080:30398/TCP   55d
 ```
 
+### GPU utilization simulation
+
+``` yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gpu-burn
+spec:
+  containers:
+    - name: gpu-burn
+      image: nvidia/cuda:12.2.0-devel-ubuntu22.04 
+      command: ["/bin/bash", "-c"]
+      args:
+        - |
+          apt update && apt install -y git build-essential && \
+          git clone https://github.com/wilicc/gpu-burn.git && \
+          cd gpu-burn && make && ./gpu_burn 999999 
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+  restartPolicy: Never
+```
