@@ -37,11 +37,9 @@ kube-prometheus-stack-grafana      NodePort   10.233.22.241   <none>        80:3
 kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090:30090/TCP,8080:30398/TCP   56d
 ```
 
-### Helm installation for gpu-operator and grafana-prometheous sta
+### Helm installation for gpu-operator and grafana-prometheous stack
 
 ```
-
-
 wsl=> helm list -A
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
 gpu-operator-1753140595 gpu-operator    4               2025-08-14 19:20:42.329819669 -0700 MST deployed        gpu-operator-v25.3.2            v25.3.2    
