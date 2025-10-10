@@ -43,9 +43,43 @@ kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090
 ```
 
 ### GPU utilization simulation
-The GPU utilization was simulated by using a container running gpu-burn 
-``` yaml
+To simulate GPU load and verify monitoring functionality, we deployed a test pod running the gpu-burn utility. This tool performs intensive GPU computations, allowing us to observe GPU utilization metrics in our monitoring dashboards.
+
+The following YAML manifest creates a pod that clones the gpu-burn repository, compiles it, and runs continuous GPU stress testing:
+
+```yaml
 apiVersion: v1
+kind: Pod
+metadata:
+    name: gpu-burn
+spec:
+    containers:
+        - name: gpu-burn
+            image: nvidia/cuda:12.2.0-devel-ubuntu22.04 
+            command: ["/bin/bash", "-c"]
+            args:
+                - |
+                    apt update && apt install -y git build-essential && \
+                    git clone https://github.com/wilicc/gpu-burn.git && \
+                    cd gpu-burn && make && ./gpu_burn 999999 
+            resources:
+                limits:
+                    nvidia.com/gpu: 1
+    restartPolicy: Never
+```
+
+**Key configuration details:**
+- **Base image**: `nvidia/cuda:12.2.0-devel-ubuntu22.04` provides the CUDA development environment
+- **GPU allocation**: `nvidia.com/gpu: 1` requests a single GPU from the cluster
+- **Runtime**: `gpu_burn 999999` runs for approximately 277 hours (effectively continuous)
+- **Restart policy**: `Never` ensures the pod completes its run without automatic restarts
+
+Deploy the pod using:
+```bash
+kubectl apply -f gpu-burn.yaml
+```
+
+Monitor the pod status and GPU metrics through the Grafana dashboards to validate that DCGM is correctly exporting GPU utilization data.
 kind: Pod
 metadata:
   name: gpu-burn
