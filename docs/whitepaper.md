@@ -53,6 +53,7 @@ kube-prometheus-stack   monitoring      5               2025-08-15 13:06:31.1693
 The NVIDIA GPU Operator Helm chart deploys a DCGM (Data Center GPU Manager) exporter by default, but there are important nuances:
 
 - The DCGM exporter Pod will be created automatically when the operator detects a node with an NVIDIA GPU and the dcgm-exporter component is enabled in its values.
+- 
 - In the stock gpu-operator Helm chart from NVIDIA's repo, the DCGM exporter is enabled by default (`dcgmExporter.enabled: true`).
 
 However:
