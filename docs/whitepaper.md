@@ -59,7 +59,10 @@ nvidia-dcgm-exporter-gkg6d                                        1/1     Runnin
 nvidia-dcgm-exporter-r2np6                                        1/1     Running     0          56d   10.233.114.15    c2-worker-02.hst.enablement.local   <none>           <none>
 ```
 
-- In the stock gpu-operator Helm chart from NVIDIA's repo, the DCGM exporter is enabled by default (`dcgmExporter.enabled: true`).
+- In the stock gpu-operator Helm chart from NVIDIA's repo, the DCGM exporter is enabled by default (`dcgmExporter.enabled: true`). This is from Nvidia GPU Operator Documentation.
+- https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html?utm_source=chatgpt.com
+- https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html#operator-install-guide
+- 
 
 However:
 
