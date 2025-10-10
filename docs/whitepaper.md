@@ -43,7 +43,7 @@ kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090
 ```
 
 ### GPU utilization simulation
-The GPU
+The GPU utilization was simulated by using a container running gpu-burn 
 ``` yaml
 apiVersion: v1
 kind: Pod
