@@ -25,6 +25,12 @@ wsl=> kubectl get ns | grep -vE '^(kube-|default)'
 NAME              STATUS   AGE
 gpu-operator      Active   80d
 monitoring        Active   56d
+
+wsl=> k get svc -n gpu-operator 
+NAME                   TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+gpu-operator           ClusterIP   10.233.44.80   <none>        8080/TCP   78d
+nvidia-dcgm-exporter   ClusterIP   10.233.15.59   <none>        9400/TCP   78d
+
 ```
 
 Before proceeding with the monitoring setup, verify that your Kubernetes cluster has the necessary components installed. The following shows a working environment with the GPU Operator and Prometheus monitoring stack deployed:
@@ -40,10 +46,7 @@ Before proceeding with the monitoring setup, verify that your Kubernetes cluster
 You can verify your setup using the following commands:
 
 ```
-wsl=> k get svc -n gpu-operator 
-NAME                   TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
-gpu-operator           ClusterIP   10.233.44.80   <none>        8080/TCP   78d
-nvidia-dcgm-exporter   ClusterIP   10.233.15.59   <none>        9400/TCP   78d
+
 
 wsl=> helm list -A
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
