@@ -37,14 +37,14 @@ kube-prometheus-stack-grafana      NodePort   10.233.22.241   <none>        80:3
 kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090:30090/TCP,8080:30398/TCP   56d
 ```
 
-### Helm installation for gpu-operator and grafana-prometheous stack
+### Helm installation
+The environment uses Helm to manage two key components: the NVIDIA GPU Operator (v25.3.2) for GPU resource management and the Kube Prometheus Stack (v76.3.0) for monitoring and observability.
 
 ```
 wsl=> helm list -A
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
 gpu-operator-1753140595 gpu-operator    4               2025-08-14 19:20:42.329819669 -0700 MST deployed        gpu-operator-v25.3.2            v25.3.2    
 kube-prometheus-stack   monitoring      5               2025-08-15 13:06:31.169338089 -0700 MST deployed        kube-prometheus-stack-76.3.0    v0.84.1    
-hjma@HSTHJMA02:~
 ```
 
 ### Helm chart customization
