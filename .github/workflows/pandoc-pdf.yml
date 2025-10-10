@@ -27,6 +27,7 @@ jobs:
             --template=./pandoc/templates/eisvogel.latex
             --metadata-file=pandoc-yaml/meta.yaml
             --listings
+            --variable colorlinks=true
             --resource-path=.:docs
             docs/whitepaper.md
             -o pdf-files/whitepaper.pdf
