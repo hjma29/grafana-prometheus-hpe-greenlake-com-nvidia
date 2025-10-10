@@ -69,10 +69,10 @@ spec:
 ```
 
 **Key configuration details:**
-- **Base image**: `nvidia/cuda:12.2.0-devel-ubuntu22.04` provides the CUDA development environment
-- **GPU allocation**: `nvidia.com/gpu: 1` requests a single GPU from the cluster
-- **Runtime**: `gpu_burn 999999` runs for approximately 277 hours (effectively continuous)
-- **Restart policy**: `Never` ensures the pod completes its run without automatic restarts
+- **Base image**: `nvidia/cuda:12.2.0-devel-ubuntu22.04` provides the CUDA development environment  
+- **GPU allocation**: `nvidia.com/gpu: 1` requests a single GPU from the cluster  
+- **Runtime**: `gpu_burn 999999` runs for approximately 277 hours (effectively continuous)  
+- **Restart policy**: `Never` ensures the pod completes its run without automatic restarts  
 
 Deploy the pod using:
 ```bash
