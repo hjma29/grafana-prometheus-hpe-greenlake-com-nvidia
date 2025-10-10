@@ -47,6 +47,17 @@ kube-prometheus-stack   monitoring      5               2025-08-15 13:06:31.1693
 hjma@HSTHJMA02:~
 ```
 
+### Helm chart customization
+
+```
+wsl=> helm get values gpu-operator-1753140595 -n gpu-operator
+USER-SUPPLIED VALUES:
+dcgmExporter:
+  service:
+    type: ClusterIP
+  serviceMonitor:
+    enabled: true
+```
 
 
 ### GPU utilization simulation
