@@ -36,10 +36,10 @@ hjma@HSTHJMA02:~
 ### External Access Configuration
 The cluster has been configured with NodePort services to enable external access to Grafana and Prometheus:
 ```
-wsl=> k get svc --field-selector spec.type=NodePort
+wsl=> k get svc --field-selector spec.type=NodePort -n monitoring
 NAME                               TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)                         AGE
-kube-prometheus-stack-grafana      NodePort   10.233.22.241   <none>        80:30080/TCP                    55d
-kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090:30090/TCP,8080:30398/TCP   55d
+kube-prometheus-stack-grafana      NodePort   10.233.22.241   <none>        80:30080/TCP                    56d
+kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090:30090/TCP,8080:30398/TCP   56d
 ```
 
 ### GPU utilization simulation
