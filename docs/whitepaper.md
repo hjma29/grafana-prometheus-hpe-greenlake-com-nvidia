@@ -31,6 +31,7 @@ NAME                   TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
 gpu-operator           ClusterIP   10.233.44.80   <none>        8080/TCP   78d
 nvidia-dcgm-exporter   ClusterIP   10.233.15.59   <none>        9400/TCP   78d
 
+
 ```
 
 Before proceeding with the monitoring setup, verify that your Kubernetes cluster has the necessary components installed. The following shows a working environment with the GPU Operator and Prometheus monitoring stack deployed:
