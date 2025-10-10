@@ -49,7 +49,22 @@ kube-prometheus-stack   monitoring      5               2025-08-15 13:06:31.1693
 
 ```
 
-### Helm chart customization
+### GPU Operator chart customization
+The NVIDIA GPU Operator Helm chart deploys a DCGM (Data Center GPU Manager) exporter by default, but there are important nuances:
+
+- The DCGM exporter Pod will be created automatically when the operator detects a node with an NVIDIA GPU and the dcgm-exporter component is enabled in its values.
+- In the stock gpu-operator Helm chart from NVIDIA's repo, the DCGM exporter is enabled by default (`dcgmExporter.enabled: true`).
+
+However:
+
+1. ServiceMonitor is not enabled by default.
+  - This means Prometheus won't automatically scrape the DCGM exporter unless you either:
+    - Enable the ServiceMonitor (`dcgmExporter.serviceMonitor.enabled: true`), or
+    - Manually define a scrape config in Prometheus.
+2. No GPUs → No exporter pods
+  - If the GPU Operator is installed into a cluster without GPU-capable nodes, the DaemonSet for dcgm-exporter may not schedule any pods.
+
+
 The gpu-operator is configured with custom values to enable Prometheus integration. The DCGM exporter runs as a ClusterIP service with ServiceMonitor enabled for automatic metrics discovery by Prometheus.
 ```
 wsl=> helm get values gpu-operator-1753140595 -n gpu-operator
