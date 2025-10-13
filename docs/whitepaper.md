@@ -40,7 +40,7 @@ kube-prometheus-stack-prometheus   NodePort   10.233.8.106    <none>        9090
 ### Helm chart installation
 The environment uses Helm to manage two key components: the NVIDIA GPU Operator for GPU resource management and the Kube Prometheus Stack for monitoring and observability.
 
-```
+``` bash
 wsl=> helm list -A
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
 gpu-operator-1753140595 gpu-operator    4               2025-08-14 19:20:42.329819669 -0700 MST deployed        gpu-operator-v25.3.2            v25.3.2    
@@ -53,7 +53,7 @@ kube-prometheus-stack   monitoring      5               2025-08-15 13:06:31.1693
 The NVIDIA GPU Operator Helm chart deploys a DCGM (Data Center GPU Manager) exporter by default, but there are important nuances:
 
 - The DCGM exporter Pod will be created automatically when the operator detects a node with an NVIDIA GPU and the dcgm-exporter component is enabled in its values.
-```
+``` bash
 wsl=> k -n gpu-operator get pods -o wide | grep dcgm
 nvidia-dcgm-exporter-gkg6d                                        1/1     Running     0          56d   10.233.117.209   c2-worker-01.hst.enablement.local   <none>           <none>
 nvidia-dcgm-exporter-r2np6                                        1/1     Running     0          56d   10.233.114.15    c2-worker-02.hst.enablement.local   <none>           <none>
