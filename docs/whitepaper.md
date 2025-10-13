@@ -82,6 +82,7 @@ dcgmExporter:
     type: ClusterIP
   serviceMonitor:
     enabled: true
+    
 ```
 
 
