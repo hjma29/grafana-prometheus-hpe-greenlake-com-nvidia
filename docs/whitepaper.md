@@ -74,7 +74,7 @@ However:
 
 
 The gpu-operator is configured with custom values to enable Prometheus integration. The DCGM exporter runs as a ClusterIP service with ServiceMonitor enabled for automatic metrics discovery by Prometheus.
-```
+``` bash
 wsl=> helm get values gpu-operator-1753140595 -n gpu-operator
 USER-SUPPLIED VALUES:
 dcgmExporter:
