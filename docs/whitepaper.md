@@ -85,12 +85,8 @@ dcgmExporter:
     relabelings: []
 ```
 
-However:
+We need to aneble  the ServiceMonitor (`dcgmExporter.serviceMonitor.enabled: true`) in order for Prometheus to automatically scrape the DCGM exporter unless you either:
 
-1. ServiceMonitor is not enabled by default.
-  - This means Prometheus won't automatically scrape the DCGM exporter unless you either:
-    - Enable the ServiceMonitor (`dcgmExporter.serviceMonitor.enabled: true`), or
-    - Manually define a scrape config in Prometheus.
 
 
 The gpu-operator is configured with custom values to enable Prometheus integration. The DCGM exporter runs as a ClusterIP service with ServiceMonitor enabled for automatic metrics discovery by Prometheus.
