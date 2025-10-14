@@ -138,3 +138,85 @@ Deploy the pod using:
 kubectl apply -f gpu-burn.yaml
 ```
 
+## Grafana Cloud Integration
+
+### Sharing Dashboards with Remote Teams
+
+While the local Grafana deployment provides comprehensive monitoring capabilities, organizations often need to share dashboards with team members who cannot directly access the internal infrastructure. Grafana Cloud offers an ideal solution by enabling metrics to be pushed from the local Prometheus instance to a cloud-hosted environment, making dashboards accessible to remote teams without requiring VPN or direct network access.
+
+### Prometheus Remote Write Configuration
+
+Grafana Cloud supports Prometheus remote write protocol, allowing local Prometheus to continuously push metrics to the cloud. This approach offers several advantages:
+
+- **No inbound firewall rules required** - Metrics are pushed outbound from the lab
+- **Real-time data synchronization** - Metrics appear in Grafana Cloud within seconds
+- **Selective metric filtering** - Control which metrics are sent to manage costs
+- **Multi-cluster aggregation** - Consolidate metrics from multiple environments
+
+### Setup Overview
+
+The integration involves three main steps:
+
+1. **Configure Grafana Cloud credentials** - Create a Prometheus remote write endpoint and API key in Grafana Cloud
+2. **Update Prometheus configuration** - Add remote write settings to the kube-prometheus-stack Helm values
+3. **Export and import dashboards** - Transfer dashboard definitions from local Grafana to Grafana Cloud
+
+### Automated Setup Script
+
+An automated setup script simplifies the configuration process:
+
+```bash
+./setup-grafana-cloud-remote-write.sh
+```
+
+The script prompts for Grafana Cloud credentials and automatically:
+- Creates Kubernetes secrets for authentication
+- Updates Prometheus with remote write configuration
+- Restarts Prometheus to apply changes
+- Verifies the setup is working correctly
+
+### Remote Write Configuration Example
+
+The Prometheus remote write configuration adds a new endpoint to push metrics:
+
+```yaml
+prometheus:
+  prometheusSpec:
+    remoteWrite:
+      - url: https://prometheus-xxx.grafana.net/api/prom/push
+        basicAuth:
+          username:
+            name: grafana-cloud-credentials
+            key: username
+          password:
+            name: grafana-cloud-credentials
+            key: password
+        writeRelabelConfigs:
+          - sourceLabels: [__name__]
+            targetLabel: cluster
+            replacement: hpe-lab-cluster
+```
+
+### Cost Optimization
+
+Grafana Cloud's free tier includes 10,000 active series, which is sufficient for focused GPU monitoring. To stay within limits, configure metric filtering:
+
+```yaml
+writeRelabelConfigs:
+  # Only send GPU and critical metrics
+  - sourceLabels: [__name__]
+    regex: 'DCGM_.*|up|kube_pod_.*'
+    action: keep
+```
+
+### Dashboard Export and Import
+
+Once metrics are flowing to Grafana Cloud:
+
+1. Export dashboards from local Grafana (Dashboard → Share → Export → Save to file)
+2. Import JSON to Grafana Cloud (Dashboards → New → Import)
+3. Select the Grafana Cloud Prometheus data source
+4. Share dashboard links with team members
+
+For detailed setup instructions, see the [Grafana Cloud Setup Guide](grafana-cloud-setup.md).
+
