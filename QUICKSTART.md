@@ -10,10 +10,22 @@
   - Instance ID (username)
   - Generate API Key (password)
 
-### 2. Run the Setup Script
+### 2. Choose Your Setup Method
+
+#### Option A: Prometheus Remote Write (Recommended for existing Prometheus)
+Best if you already have Prometheus running and want to keep local queries.
+
 ```bash
 cd /Users/hongjun/work/grafana-prometheus-hpe-greenlake-com-nvidia
 ./setup-grafana-cloud-remote-write.sh
+```
+
+#### Option B: Grafana Agent (Lightweight alternative)
+Best if you want minimal resource usage or starting fresh.
+
+```bash
+cd /Users/hongjun/work/grafana-prometheus-hpe-greenlake-com-nvidia
+./setup-grafana-agent.sh
 ```
 
 The script will:
@@ -33,7 +45,19 @@ kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 3000:80
 ```
 
 ## 📚 Full Documentation
-See [docs/grafana-cloud-setup.md](docs/grafana-cloud-setup.md) for detailed instructions and troubleshooting.
+- **Prometheus Remote Write**: [docs/grafana-cloud-setup.md](docs/grafana-cloud-setup.md)
+- **Grafana Agent**: [docs/grafana-agent-setup.md](docs/grafana-agent-setup.md)
+
+## 🤔 Which Option Should I Choose?
+
+| Criteria | Prometheus Remote Write | Grafana Agent |
+|----------|------------------------|---------------|
+| Already have Prometheus | ✅ **Recommended** | ⚠️ Redundant |
+| Need local queries | ✅ Yes | ❌ No |
+| Want minimal resources | ⚠️ ~2GB memory | ✅ ~50MB memory |
+| Setup complexity | ⚠️ Medium | ✅ Simple |
+
+**For your setup:** Use **Prometheus Remote Write** since you already have kube-prometheus-stack running.
 
 ## 🎯 What This Solves
 - ✅ Teammates can access GPU monitoring without VPN/lab access
