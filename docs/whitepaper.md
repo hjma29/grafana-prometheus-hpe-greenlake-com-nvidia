@@ -60,11 +60,11 @@ nvidia-dcgm-exporter-r2np6                                        1/1     Runnin
 ```
 
 
-- In the stock gpu-operator Helm chart from NVIDIA's repository, the DCGM exporter is enabled by default (`dcgmExporter.enabled: true`), but the ServiceMonitor is disabled by default (`serviceMonitor.enabled: false`). You can verify these default built-in values using the `helm show values` command. See the [NVIDIA GPU Operator Documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html#operator-install-guide).
+- In the stock gpu-operator Helm chart from NVIDIA's repository, the DCGM exporter is enabled by default (`dcgmExporter.enabled: true`), but the ServiceMonitor is disabled by default (`serviceMonitor.enabled: false`). See the [NVIDIA GPU Operator Documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html#operator-install-guide).
 
 ![GPU Operator Configuration](images/image-4.png)
 
-
+You can also verify these default built-in values using the `helm show values` command. 
 ``` bash
 wsl=> helm show values nvidia/gpu-operator | grep -A 15 dcgmExporter
 dcgmExporter:
