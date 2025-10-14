@@ -64,6 +64,25 @@ nvidia-dcgm-exporter-r2np6                                        1/1     Runnin
 
 ![GPU Operator Configuration](images/image-4.png)
 
+``` bash
+wsl=> helm show values nvidia/gpu-operator | grep -A 15 dcgmExporter
+dcgmExporter:
+  enabled: true
+  repository: nvcr.io/nvidia/k8s
+  image: dcgm-exporter
+  version: 4.3.1-4.4.0-ubuntu22.04
+  imagePullPolicy: IfNotPresent
+  env: []
+  resources: {}
+  service:
+    internalTrafficPolicy: Cluster
+  serviceMonitor:
+    enabled: false
+    interval: 15s
+    honorLabels: false
+    additionalLabels: {}
+    relabelings: []
+```
 
 However:
 
