@@ -64,6 +64,7 @@ nvidia-dcgm-exporter-r2np6                                        1/1     Runnin
 
 ![GPU Operator Configuration](images/image-4.png)
 
+
 ``` bash
 wsl=> helm show values nvidia/gpu-operator | grep -A 15 dcgmExporter
 dcgmExporter:
