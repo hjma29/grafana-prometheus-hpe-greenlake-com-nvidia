@@ -20,12 +20,12 @@ cd /Users/hongjun/work/grafana-prometheus-hpe-greenlake-com-nvidia
 ./setup-grafana-cloud-remote-write.sh
 ```
 
-#### Option B: Grafana Agent (Lightweight alternative)
+#### Option B: Grafana Alloy (Lightweight alternative)
 Best if you want minimal resource usage or starting fresh.
 
 ```bash
 cd /Users/hongjun/work/grafana-prometheus-hpe-greenlake-com-nvidia
-./setup-grafana-agent.sh
+./setup-grafana-alloy.sh
 ```
 
 The script will:

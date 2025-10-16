@@ -15,7 +15,7 @@ Grafana Alloy (formerly known as Grafana Agent) is a lightweight, purpose-built 
 | Service Discovery | Kubernetes native | Kubernetes native |
 | Setup Complexity | Lower | Higher |
 
-**When to use Grafana Agent:**
+**When to use Grafana Alloy:**
 - Primary goal is Grafana Cloud integration
 - Want to minimize resource usage
 - Don't need local Prometheus for querying
@@ -30,10 +30,10 @@ Grafana Alloy (formerly known as Grafana Agent) is a lightweight, purpose-built 
 Since you already have Prometheus running with kube-prometheus-stack, you have two deployment options:
 
 ### Option 1: Replace Prometheus Remote Write (Lightweight)
-Deploy Grafana Agent to scrape the same targets and send directly to Grafana Cloud. This is more efficient but you lose local Prometheus queries.
+Deploy Grafana Alloy to scrape the same targets and send directly to Grafana Cloud. This is more efficient but you lose local Prometheus queries.
 
-### Option 2: Grafana Agent Alongside Prometheus (Recommended for Your Setup)
-Keep your existing Prometheus for local queries and deploy Grafana Agent to send a subset of metrics to Grafana Cloud. This gives you the best of both worlds.
+### Option 2: Grafana Alloy Alongside Prometheus (Recommended for Your Setup)
+Keep your existing Prometheus for local queries and deploy Grafana Alloy to send a subset of metrics to Grafana Cloud. This gives you the best of both worlds.
 
 ## Installation
 
@@ -71,9 +71,9 @@ kubectl create secret generic grafana-cloud-credentials \
   -n monitoring
 ```
 
-### Step 4: Create Grafana Agent Values File
+### Step 4: Create Grafana Alloy Values File
 
-Create `grafana-agent-values.yaml`:
+Create `grafana-alloy-values.yaml`:
 
 ```yaml
 agent:
@@ -139,29 +139,29 @@ controller:
   replicas: 1
 ```
 
-### Step 5: Install Grafana Agent
+### Step 5: Install Grafana Alloy
 
 ```bash
-helm install grafana-agent grafana/grafana-agent \
+helm install grafana-alloy grafana/alloy \
   -n monitoring \
-  -f grafana-agent-values.yaml
+  -f grafana-alloy-values.yaml
 ```
 
 ### Step 6: Verify Installation
 
 ```bash
-# Check if Grafana Agent is running
-kubectl get pods -n monitoring -l app.kubernetes.io/name=grafana-agent
+# Check if Grafana Alloy is running
+kubectl get pods -n monitoring -l app.kubernetes.io/name=alloy
 
 # Check logs
-kubectl logs -n monitoring -l app.kubernetes.io/name=grafana-agent -f
+kubectl logs -n monitoring -l app.kubernetes.io/name=alloy -f
 
 # Should see messages about scraping targets and sending to remote write
 ```
 
 ## Advanced Configuration - Scrape from Prometheus Federation
 
-If you want to leverage your existing Prometheus and just forward metrics through Grafana Agent:
+If you want to leverage your existing Prometheus and just forward metrics through Grafana Alloy:
 
 ```yaml
 prometheus.scrape "prometheus_federation" {
@@ -188,16 +188,16 @@ prometheus.scrape "prometheus_federation" {
 This approach:
 - ✅ Leverages existing Prometheus service discovery
 - ✅ Uses Prometheus's existing scrape configuration
-- ✅ Grafana Agent only forwards metrics to cloud
+- ✅ Grafana Alloy only forwards metrics to cloud
 - ✅ Minimal configuration changes
 
-## Monitoring Grafana Agent
+## Monitoring Grafana Alloy
 
 Check if metrics are being sent:
 
 ```bash
-# Port forward to Grafana Agent
-kubectl port-forward -n monitoring svc/grafana-agent 12345:12345
+# Port forward to Grafana Alloy
+kubectl port-forward -n monitoring svc/grafana-alloy 12345:12345
 
 # Check metrics
 curl http://localhost:12345/metrics | grep agent_wal_samples
@@ -213,9 +213,9 @@ curl http://localhost:12345/metrics | grep agent_wal_samples
    kubectl get secret grafana-cloud-credentials -n monitoring -o jsonpath='{.data.username}' | base64 -d
    ```
 
-2. Check Grafana Agent logs:
+2. Check Grafana Alloy logs:
    ```bash
-   kubectl logs -n monitoring -l app.kubernetes.io/name=grafana-agent --tail=100
+   kubectl logs -n monitoring -l app.kubernetes.io/name=alloy --tail=100
    ```
 
 3. Verify remote write endpoint URL matches your Grafana Cloud URL
@@ -232,15 +232,15 @@ curl http://localhost:12345/metrics | grep agent_wal_samples
     --from-literal=password="<new-api-key>" \
     -n monitoring
   ```
-- Restart Grafana Agent:
+- Restart Grafana Alloy:
   ```bash
-  kubectl rollout restart deployment -n monitoring grafana-agent
+  kubectl rollout restart deployment -n monitoring grafana-alloy
   ```
 
 ## Uninstall
 
 ```bash
-helm uninstall grafana-agent -n monitoring
+helm uninstall grafana-alloy -n monitoring
 kubectl delete secret grafana-cloud-credentials -n monitoring
 ```
 
@@ -253,14 +253,14 @@ DCGM Exporter → Prometheus → Remote Write → Grafana Cloud
               Local Queries
 ```
 
-### With Grafana Agent (Option 1 - Direct):
+### With Grafana Alloy (Option 1 - Direct):
 ```
-DCGM Exporter → Grafana Agent → Grafana Cloud
+DCGM Exporter → Grafana Alloy → Grafana Cloud
 ```
 
-### With Grafana Agent (Option 2 - Federation):
+### With Grafana Alloy (Option 2 - Federation):
 ```
-DCGM Exporter → Prometheus → Grafana Agent → Grafana Cloud
+DCGM Exporter → Prometheus → Grafana Alloy → Grafana Cloud
                     ↓
               Local Queries
 ```
@@ -271,7 +271,7 @@ Since you already have Prometheus running and likely use it for local queries, I
 
 **Keep using Prometheus Remote Write** - It's simpler since you already have it configured, and you're already running Prometheus anyway.
 
-**Consider Grafana Agent if:**
+**Consider Grafana Alloy if:**
 - You want to reduce memory usage by removing Prometheus
 - You only need cloud-hosted dashboards (no local queries)
 - You're starting fresh without existing Prometheus
@@ -280,6 +280,6 @@ For your current setup, the shell script using Prometheus remote write (`setup-g
 
 ## Resources
 
-- [Grafana Agent Documentation](https://grafana.com/docs/agent/latest/)
-- [Grafana Agent Kubernetes Deployment](https://grafana.com/docs/agent/latest/flow/get-started/deploy-agent/)
+- [Grafana Alloy Documentation](https://grafana.com/docs/alloy/latest/)
+- [Grafana Alloy Kubernetes Deployment](https://grafana.com/docs/alloy/latest/get-started/deploy/kubernetes/)
 - [Grafana Cloud Getting Started](https://grafana.com/docs/grafana-cloud/quickstart/)
