@@ -45,6 +45,7 @@ kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 3000:80
 ```
 
 ## 📚 Full Documentation
+- **Comparison Guide**: [docs/remote-write-vs-alloy-comparison.md](docs/remote-write-vs-alloy-comparison.md) ⭐ **Start here!**
 - **Prometheus Remote Write**: [docs/grafana-cloud-setup.md](docs/grafana-cloud-setup.md)
 - **Grafana Alloy**: [docs/grafana-alloy-setup.md](docs/grafana-alloy-setup.md)
 
