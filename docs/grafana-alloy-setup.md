@@ -1,12 +1,12 @@
-# Grafana Agent Setup for GPU Monitoring
+# Grafana Alloy Setup for GPU Monitoring
 
 ## Overview
 
-Grafana Agent is a lightweight, purpose-built telemetry collector designed specifically for sending metrics, logs, and traces to Grafana Cloud. It's more efficient than running a full Prometheus instance with remote write, especially when your primary goal is to send data to Grafana Cloud.
+Grafana Alloy (formerly known as Grafana Agent) is a lightweight, purpose-built telemetry collector designed specifically for sending metrics, logs, and traces to Grafana Cloud. It's more efficient than running a full Prometheus instance with remote write, especially when your primary goal is to send data to Grafana Cloud.
 
-## Grafana Agent vs Prometheus Remote Write
+## Grafana Alloy vs Prometheus Remote Write
 
-| Feature | Grafana Agent | Prometheus Remote Write |
+| Feature | Grafana Alloy | Prometheus Remote Write |
 |---------|---------------|-------------------------|
 | Resource Usage | ~50MB memory | ~1-2GB memory |
 | Configuration | Simpler, cloud-first | More complex |

@@ -1,11 +1,11 @@
 #!/bin/bash
-# Script to set up Grafana Agent to send metrics to Grafana Cloud
-# Usage: ./setup-grafana-agent.sh
+# Script to set up Grafana Alloy to send metrics to Grafana Cloud
+# Usage: ./setup-grafana-alloy.sh
 
 set -e
 
 echo "========================================="
-echo "Grafana Agent Setup Script"
+echo "Grafana Alloy Setup Script"
 echo "========================================="
 echo ""
 
@@ -76,11 +76,11 @@ kubectl create secret generic grafana-cloud-credentials \
 
 echo -e "${GREEN}✓ Secret created successfully${NC}"
 
-# Step 3: Create Grafana Agent values file
+# Step 3: Create Grafana Alloy values file
 echo ""
-echo -e "${YELLOW}Step 3: Creating Grafana Agent values file...${NC}"
+echo -e "${YELLOW}Step 3: Creating Grafana Alloy values file...${NC}"
 
-cat > /tmp/grafana-agent-values.yaml <<EOF
+cat > /tmp/grafana-alloy-values.yaml <<EOF
 agent:
   mode: 'flow'
   configMap:
@@ -156,26 +156,26 @@ controller:
   replicas: 1
 EOF
 
-echo -e "${GREEN}✓ Values file created at /tmp/grafana-agent-values.yaml${NC}"
+echo -e "${GREEN}✓ Values file created at /tmp/grafana-alloy-values.yaml${NC}"
 
-# Step 4: Install Grafana Agent
+# Step 4: Install Grafana Alloy
 echo ""
-echo -e "${YELLOW}Step 4: Installing Grafana Agent...${NC}"
+echo -e "${YELLOW}Step 4: Installing Grafana Alloy...${NC}"
 
-helm upgrade --install grafana-agent grafana/grafana-agent \
+helm upgrade --install grafana-alloy grafana/alloy \
   -n monitoring \
-  -f /tmp/grafana-agent-values.yaml \
+  -f /tmp/grafana-alloy-values.yaml \
   --wait
 
-echo -e "${GREEN}✓ Grafana Agent installed successfully${NC}"
+echo -e "${GREEN}✓ Grafana Alloy installed successfully${NC}"
 
 # Step 5: Verify installation
 echo ""
 echo -e "${YELLOW}Step 5: Verifying installation...${NC}"
 sleep 5
 
-echo "Checking Grafana Agent pods..."
-kubectl get pods -n monitoring -l app.kubernetes.io/name=grafana-agent
+echo "Checking Grafana Alloy pods..."
+kubectl get pods -n monitoring -l app.kubernetes.io/name=alloy
 
 echo ""
 echo -e "${GREEN}=========================================${NC}"
@@ -184,8 +184,8 @@ echo -e "${GREEN}=========================================${NC}"
 echo ""
 echo "Next steps:"
 echo ""
-echo "1. Check Grafana Agent logs:"
-echo "   kubectl logs -n monitoring -l app.kubernetes.io/name=grafana-agent -f"
+echo "1. Check Grafana Alloy logs:"
+echo "   kubectl logs -n monitoring -l app.kubernetes.io/name=alloy -f"
 echo ""
 echo "2. Wait 1-2 minutes, then check Grafana Cloud:"
 echo "   - Go to Explore"
@@ -198,8 +198,8 @@ echo "   Open: http://localhost:3000"
 echo ""
 echo "4. Import the dashboard to Grafana Cloud"
 echo ""
-echo -e "${YELLOW}Configuration file saved at: /tmp/grafana-agent-values.yaml${NC}"
+echo -e "${YELLOW}Configuration file saved at: /tmp/grafana-alloy-values.yaml${NC}"
 echo ""
-echo -e "${YELLOW}To uninstall Grafana Agent:${NC}"
-echo "   helm uninstall grafana-agent -n monitoring"
+echo -e "${YELLOW}To uninstall Grafana Alloy:${NC}"
+echo "   helm uninstall grafana-alloy -n monitoring"
 echo ""
