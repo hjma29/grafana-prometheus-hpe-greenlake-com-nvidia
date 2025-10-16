@@ -46,11 +46,11 @@ kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 3000:80
 
 ## 📚 Full Documentation
 - **Prometheus Remote Write**: [docs/grafana-cloud-setup.md](docs/grafana-cloud-setup.md)
-- **Grafana Agent**: [docs/grafana-agent-setup.md](docs/grafana-agent-setup.md)
+- **Grafana Alloy**: [docs/grafana-alloy-setup.md](docs/grafana-alloy-setup.md)
 
 ## 🤔 Which Option Should I Choose?
 
-| Criteria | Prometheus Remote Write | Grafana Agent |
+| Criteria | Prometheus Remote Write | Grafana Alloy |
 |----------|------------------------|---------------|
 | Already have Prometheus | ✅ **Recommended** | ⚠️ Redundant |
 | Need local queries | ✅ Yes | ❌ No |
